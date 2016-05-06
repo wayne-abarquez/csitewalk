@@ -1,0 +1,66 @@
+{
+    "data": {
+        "data": {
+            "data": {
+                "sections": [
+                    {
+                        "fields": [
+                            {
+                                "type": "control", 
+                                "children": [
+                                    {
+                                        "type": "bool", 
+                                        "name": "is_new_pole_permitted", 
+                                        "label": "Is A New Pole Permitted?"
+                                    }, 
+                                    {
+                                        "type": "textbox", 
+                                        "name": "is_new_pole_permitted_note", 
+                                        "label": "Note"
+                                    }, 
+                                    {
+                                        "type": "bool", 
+                                        "name": "is_replacement_pole_permitted", 
+                                        "label": "Is A Replacement Pole Permitted?"
+                                    }, 
+                                    {
+                                        "type": "textbox", 
+                                        "name": "is_replacement_pole_permitted_note", 
+                                        "label": "Note"
+                                    }, 
+                                    {
+                                        "type": "bool", 
+                                        "name": "can_there_be_attachment_to_existing_pole", 
+                                        "label": "Can There Be An Attachment To An Existing Pole"
+                                    }, 
+                                    {
+                                        "type": "text", 
+                                        "name": "pole_owner", 
+                                        "label": "If There is an Attachment Pole, Who is the Pole Owner?"
+                                    }, 
+                                    {
+                                        "type": "textbox", 
+                                        "name": "is_there_maximum_pole_height_requirement", 
+                                        "label": "Is There A Maximum Pole Height Requirement?"
+                                    }, 
+                                    {
+                                        "type": "textbox", 
+                                        "name": "best_options_summary", 
+                                        "label": "Best Options Summary"
+                                    }
+                                ], 
+                                "name": "does_public_utility_code_apply", 
+                                "label": "Does Public Utility Code Apply?"
+                            }
+                        ], 
+                        "name": "checklist_public_utility_code_form", 
+                        "label": "Public Utility Code Apply"
+                    }
+                ]
+            }, 
+            "name": "scrub_checklist_public_utility"
+        }, 
+        "name": "scrub_checklist_public_utility"
+    }, 
+    "name": "scrub_checklist_public_utility"
+}

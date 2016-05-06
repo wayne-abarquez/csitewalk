@@ -1,0 +1,76 @@
+{% raw %}
+<!-- SEARCH PANEL SIDENAV -->
+<md-sidenav class="md-sidenav-left md-whiteframe-z2 map-panel"
+    md-component-id="searchPanel"
+    id="search-panel">
+  <md-toolbar class="md-primary">
+      <div class="md-toolbar-tools">
+          <h3>
+              <md-icon style="margin-right: 10px;">search</md-icon>Search
+          </h3>
+          <span flex></span>
+          <md-button class="md-icon-button" ng-click="indexCtl.closeSideNav('searchPanel')">
+            <md-icon>close</md-icon>
+          </md-button>
+      </div>
+  </md-toolbar>
+
+  <md-content layout-padding style="padding:0px;" ng-controller="filterController as filterCtl">
+    <div layout="column" layout-align="center center" style="height:inherit;padding: 0px;">
+        <md-input-container style="margin: 0 10px;">
+          <!--<label>Enter a location</label>-->
+          <input id="filter-location-input">
+        </md-input-container>
+    </div>
+  </md-content>
+
+</md-sidenav>
+
+
+<!-- LAYERS PANEL SIDENAV -->
+<md-sidenav class="md-sidenav-left md-whiteframe-z2 map-panel"
+    md-component-id="layerPanel"
+    id="layer-panel">
+  <md-toolbar class="md-primary">
+      <div class="md-toolbar-tools">
+          <h3>
+              <md-icon style="margin-right: 10px;">layers</md-icon>Layers
+          </h3>
+          <span flex></span>
+          <md-button class="md-icon-button" ng-click="indexCtl.closeSideNav('layerPanel')">
+            <md-icon>close</md-icon>
+          </md-button>
+      </div>
+  </md-toolbar>
+
+
+    <md-content layout-padding ng-controller="layerController as layerCtl" style="padding:0px;">
+      <v-accordion class="vAccordion--default" multiple>
+        <!-- add expanded attribute to open the section -->
+        <v-pane ng-repeat="layer in layerCtl.layers">
+          <v-pane-header inactive>
+
+            <!-- Show toggle icon if has children -->
+            <md-button class="md-icon-button" ng-if="layer.children" ng-click="$pane.toggle()">
+                <md-icon>{{ $pane.isExpanded() ? 'expand_less' : 'expand_more' }}</md-icon>
+            </md-button>
+            <!-- OR -->
+            <!-- Show Checkbox if layer has no children -->
+            <md-checkbox class="md-warn" ng-if="!layer.children" ng-model="layer.selected" ng-change="{{layer.action}}"></md-checkbox>
+            {{ layer.label }}
+          </v-pane-header>
+
+          <v-pane-content>
+            <md-list style="padding:0px;"  ng-if="layer.children">
+                <md-list-item ng-repeat="childLayer in layer.children" style="padding:0px;font-size:13px;">
+                  <md-checkbox class="md-warn" ng-model="childLayer.selected" ng-change="{{childLayer.action}}"></md-checkbox>{{ childLayer.label }}
+                </md-list-item>
+            </md-list>
+          </v-pane-content>
+        </v-pane>
+
+      </v-accordion>
+
+    </md-content>
+</md-sidenav>
+{% endraw %}

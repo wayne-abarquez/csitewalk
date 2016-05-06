@@ -1,0 +1,105 @@
+{
+    "data": {
+        "data": {
+            "data": {
+                "sections": [
+                    {
+                        "fields": [
+                            {
+                                "type": "text", 
+                                "name": "tier", 
+                                "label": "Tier"
+                            }, 
+                            {
+                                "type": "text", 
+                                "name": "drop", 
+                                "label": "Drop"
+                            }, 
+                            {
+                                "type": "text", 
+                                "name": "swap", 
+                                "label": "Swap"
+                            }, 
+                            {
+                                "type": "textbox", 
+                                "name": "address", 
+                                "label": "Address"
+                            }, 
+                            {
+                                "type": "text", 
+                                "name": "distance_from_existing_site", 
+                                "label": "Distance From Existing Site"
+                            }, 
+                            {
+                                "type": "text", 
+                                "name": "latitude", 
+                                "label": "Latitude"
+                            }, 
+                            {
+                                "type": "text", 
+                                "name": "longitude", 
+                                "label": "Longitude"
+                            }, 
+                            {
+                                "type": "text", 
+                                "name": "proposed_pole_type", 
+                                "label": "Proposed Pole Type"
+                            }, 
+                            {
+                                "type": "text", 
+                                "name": "num_sites_in_jurisdiction", 
+                                "label": "Number of Sites in Jurisdiction"
+                            }
+                        ], 
+                        "name": "checklist_general_info_form", 
+                        "label": "General Information"
+                    }, 
+                    {
+                        "fields": [
+                            {
+                                "type": "text", 
+                                "name": "poc", 
+                                "label": "POC"
+                            }, 
+                            {
+                                "type": "text", 
+                                "name": "title", 
+                                "label": "Title"
+                            }, 
+                            {
+                                "type": "text", 
+                                "name": "department", 
+                                "label": "Department"
+                            }, 
+                            {
+                                "type": "text", 
+                                "name": "phone", 
+                                "label": "Phone"
+                            }, 
+                            {
+                                "type": "text", 
+                                "name": "email", 
+                                "label": "Email"
+                            }, 
+                            {
+                                "type": "text", 
+                                "name": "alt_contact", 
+                                "label": "Alternative Contact"
+                            }, 
+                            {
+                                "type": "textbox", 
+                                "name": "comments", 
+                                "label": "Comments"
+                            }
+                        ], 
+                        "name": "permitting_officer_info", 
+                        "label": "Permitting Officer"
+                    }
+                ]
+            }, 
+            "name": "scrub_checklist_general_info"
+        }, 
+        "name": "scrub_checklist_general_info"
+    }, 
+    "name": "scrub_checklist_general_info"
+}

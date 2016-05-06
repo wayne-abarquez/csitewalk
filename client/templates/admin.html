@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% raw %}
+    <div id="admin-page" layout="column" flex="100" ng-cloak>
+        <md-content flex="100">
+            <md-tabs md-border-bottom md-dynamic-height>
+
+
+
+                <!-- User Management Tab -->
+                <md-tab label="User Management">
+                    <md-content class="md-padding">
+                        <div layout-gt-md="row"
+                             layout-lt-sm="column"
+                             layout-align-lt-sm="center start"
+                             flex
+                             ng-controller="userManagementController as vm">
+
+                            <div flex-gt-sm="10" flex-lt-sm="100">
+                                <md-button class="md-primary md-raised">Sync LDAP Users</md-button>
+                            </div>
+
+                            <div flex>
+                                <md-card>
+                                    <md-card-content>
+                                        <md-list>
+                                            <md-subheader class="md-no-sticky">{{ vm.users.length }} User/s</md-subheader>
+                                            <md-divider></md-divider>
+                                            <md-list-item class="md-3-line" ng-repeat="u in vm.users" ng-click="null">
+                                                <md-icon class="md-avatar" style="font-size:40px;">face</md-icon>
+                                                <div class="md-list-item-text" layout="column">
+                                                    <h3>{{ u.username }}</h3>
+                                                    <h4>{{ u.firstname }} {{ u.lastname }}</h4>
+                                                    <p>{{ u.role.name }}</p>
+                                                </div>
+                                                <md-divider></md-divider>
+                                            </md-list-item>
+                                        </md-list>
+                                    </md-card-content>
+                                </md-card>
+                            </div>
+
+                        </div>
+                    </md-content>
+                </md-tab>
+
+
+
+                <!-- Form Schema Tab -->
+                <md-tab label="Form Schema">
+                    <md-content class="md-padding">
+                        <div layout-gt-md="row"
+                             layout-lt-sm="column"
+                             layout-align-lt-sm="center start"
+                             flex
+                             ng-controller="formSchemaController as afsCtl">
+
+                            <div flex-gt-sm="20" flex-lt-sm="100">
+                                <md-list>
+                                    <md-list-item ng-repeat="file in afsCtl.jsonFiles track by $index" ng-class="{'active': file.active, '': !file.active}" ng-click="afsCtl.selectFile(file)">
+                                        {{file.name}}
+                                        <md-divider></md-divider>
+                                    </md-list-item>
+                                </md-list>
+                            </div>
+
+
+                            <div flex layout="column">
+
+                                <div layout="row" style="padding-left:10px;">
+                                    <md-button class="md-primary md-raised" ng-click="afsCtl.saveCurrentFile()">Save</md-button>
+                                    <md-button class="md-raised" ng-click="afsCtl.saveAllFiles()">Save All</md-button>
+                                    <md-button class="md-raised" ng-click="afsCtl.refresh()">Refresh</md-button>
+                                </div>
+
+                                <div flex="100" class="md-padding" style="padding-top:0;">
+                                    <md-card flex="100" ng-jsoneditor ng-model="afsCtl.jsonEditor.data" options="afsCtl.jsonEditor.options"></md-card>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </md-content>
+                </md-tab>
+
+
+
+            </md-tabs>
+        </md-content>
+    </div>
+    {% endraw %}
+
+    <script src="js/vendor.min.js"></script>
+    <script src="js/app.min.js"></script>
+{% endblock %}

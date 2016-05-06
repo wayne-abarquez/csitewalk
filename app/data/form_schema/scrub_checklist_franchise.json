@@ -1,0 +1,41 @@
+{
+    "data": {
+        "data": {
+            "data": {
+                "sections": [
+                    {
+                        "fields": [
+                            {
+                                "type": "control", 
+                                "children": [
+                                    {
+                                        "type": "textbox", 
+                                        "name": "status_of_agreement", 
+                                        "label": "What Is The Status Of Agreement?"
+                                    }, 
+                                    {
+                                        "type": "textbox", 
+                                        "name": "agreement_summary", 
+                                        "label": "Franchise Agreement Summary"
+                                    }
+                                ], 
+                                "name": "is_franchise_agreement_jx_required", 
+                                "label": "Is A Franchise Agreement With JX Required?"
+                            }, 
+                            {
+                                "type": "textbox", 
+                                "name": "is_franchise_agreement_jx_required_note", 
+                                "label": "Note"
+                            }
+                        ], 
+                        "name": "checklist_franchise_agreement_form", 
+                        "label": "Franchise Agreement"
+                    }
+                ]
+            }, 
+            "name": "scrub_checklist_franchise"
+        }, 
+        "name": "scrub_checklist_franchise"
+    }, 
+    "name": "scrub_checklist_franchise"
+}

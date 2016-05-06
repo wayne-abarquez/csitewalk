@@ -1,0 +1,55 @@
+{
+    "data": {
+        "data": {
+            "data": {
+                "sections": [
+                    {
+                        "fields": [
+                            {
+                                "label": "USGS Topo Map", 
+                                "type": "file", 
+                                "name": "file_usgs_topo_map", 
+                                "can_screenshot": true
+                            }, 
+                            {
+                                "label": "FEMA Flood Map", 
+                                "type": "file", 
+                                "name": "file_fema_flood_map", 
+                                "can_screenshot": true
+                            }, 
+                            {
+                                "label": "Aerial / Location Map", 
+                                "type": "file", 
+                                "name": "file_location_map", 
+                                "can_screenshot": true
+                            }, 
+                            {
+                                "label": "Ownership Map", 
+                                "type": "file", 
+                                "name": "file_ownership_map", 
+                                "can_screenshot": false
+                            }, 
+                            {
+                                "label": "Zoning Map", 
+                                "type": "file", 
+                                "name": "file_zoning_map", 
+                                "can_screenshot": false
+                            }, 
+                            {
+                                "label": "No Zoning Letter", 
+                                "type": "file", 
+                                "name": "file_no_zoning_letter", 
+                                "can_screenshot": false
+                            }
+                        ], 
+                        "name": "scip_files", 
+                        "label": ""
+                    }
+                ]
+            }, 
+            "name": "scip_files"
+        }, 
+        "name": "scip_files"
+    }, 
+    "name": "scip_files"
+}

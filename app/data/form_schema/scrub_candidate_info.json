@@ -1,0 +1,90 @@
+{
+    "active": true, 
+    "data": {
+        "active": true, 
+        "data": {
+            "active": true, 
+            "data": {
+                "active": true, 
+                "data": {
+                    "active": true, 
+                    "data": {
+                        "sections": [
+                            {
+                                "fields": [
+                                    {
+                                        "type": "text", 
+                                        "name": "type", 
+                                        "label": "Type"
+                                    }, 
+                                    {
+                                        "type": "text", 
+                                        "name": "target_height_max", 
+                                        "label": "Target Height Max (meters)"
+                                    }, 
+                                    {
+                                        "type": "text", 
+                                        "name": "candidate_lng", 
+                                        "label": "Candidate Longitude"
+                                    }, 
+                                    {
+                                        "type": "text", 
+                                        "name": "target_height_min", 
+                                        "label": "Target Height Min (meters)"
+                                    }, 
+                                    {
+                                        "type": "text", 
+                                        "name": "candidate_lat", 
+                                        "label": "Candidate Latitude"
+                                    }, 
+                                    {
+                                        "type": "text", 
+                                        "name": "existing_surface", 
+                                        "label": "Existing Surface"
+                                    }, 
+                                    {
+                                        "type": "text", 
+                                        "name": "distance_centroid", 
+                                        "label": "Distance From Centroid"
+                                    }, 
+                                    {
+                                        "type": "text", 
+                                        "name": "max_distance_allowed_centroid", 
+                                        "label": "Max Distance Allowed From Centroid (meters)"
+                                    }, 
+                                    {
+                                        "type": "text", 
+                                        "name": "proposed_height", 
+                                        "label": "Proposed Height (meters)"
+                                    }, 
+                                    {
+                                        "type": "bool", 
+                                        "name": "visible_obstructions", 
+                                        "label": "Visible Obstructions?"
+                                    }, 
+                                    {
+                                        "type": "textbox", 
+                                        "name": "special_access_requirements", 
+                                        "label": "Special Access Requirements (if applicable)"
+                                    }, 
+                                    {
+                                        "type": "textbox", 
+                                        "name": "nearest_power_and_fiber", 
+                                        "label": "Nearest Power & Fiber"
+                                    }
+                                ], 
+                                "name": "candidate_info_formy", 
+                                "label": ""
+                            }
+                        ]
+                    }, 
+                    "name": "scrub_candidate_info"
+                }, 
+                "name": "scrub_candidate_info"
+            }, 
+            "name": "scrub_candidate_info"
+        }, 
+        "name": "scrub_candidate_info"
+    }, 
+    "name": "scrub_candidate_info"
+}

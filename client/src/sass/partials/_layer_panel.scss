@@ -1,0 +1,124 @@
+#layer-toggle-btn-container {
+  position: absolute;
+  top: calc(50% - 100px);
+  left: 0;
+  height: auto;
+  background-color: white;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 0;
+  box-shadow: 0 2px 3px 0 rgba(0, 0, 0, .26);
+  z-index: 3;
+
+  button {
+    margin: 3px 0px;
+    min-width: 45px;
+
+    md-icon {
+      color: $primary-color;
+    }
+
+  }
+}
+
+md-backdrop.md-sidenav-backdrop {
+  display: none
+}
+
+md-sidenav.map-panel {
+  min-height: 200px;
+  max-height: 320px;
+  top: 20%;
+  width: 210px;
+  z-index: 2;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  overflow-x: hidden;
+
+  md-toolbar {
+    width: inherit !important;
+    min-height: 40px;
+    max-height: 40px;
+
+    .md-toolbar-tools {
+      height: inherit !important;
+      max-height: inherit !important;
+      padding: 0 10px;
+    }
+  }
+
+  md-content {
+    padding: 5px 0px 5px 45px !important;
+
+    md-input-container {
+      padding: 0px 5px;
+      margin: 0px 20px;
+    }
+
+    md-list-item {
+      height: 35px;
+      min-height: 35px;
+
+      md-checkbox {
+        margin-right: 15px !important;
+      }
+    }
+
+    v-accordion {
+      padding-right: 0px !important;
+
+      v-pane {
+        padding-right: 10px;
+
+        v-pane-header {
+          font-size: 14px;
+          padding: 0px;
+          margin-bottom: 5px;
+
+          button.md-button {
+            padding: 0px;
+            margin: 0px;
+            height: 30px;
+            min-height: 30px;
+            width: 30px;
+            text-align: left;
+          }
+
+          md-checkbox {
+            margin-bottom: 5px;
+          }
+
+          div:first-child {
+            font-size: 14px;
+          }
+        }
+        .md-list-item-inner {
+          padding: 0px;
+        }
+
+        v-pane-content > div {
+          padding-bottom: 5px;
+        }
+      }
+    }
+
+  }
+}
+
+$searchPanelHeight: 180px;
+md-sidenav#search-panel {
+  height: $searchPanelHeight;
+  min-height: $searchPanelHeight;
+  top: calc(50% - 160px);
+
+  md-content {
+    height: $searchPanelHeight - 60px;
+  }
+}
+
+md-sidenav#layer-panel {
+  top: calc(50% - 180px);
+  width: 235px;
+  max-height: 210px;
+  overflow-x: hidden;
+}

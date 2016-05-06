@@ -1,0 +1,15 @@
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+#index-container {
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+/* Remove Padding on Menu */
+md-menu-content {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}

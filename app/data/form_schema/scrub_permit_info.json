@@ -1,0 +1,69 @@
+{
+    "data": {
+        "data": {
+            "data": {
+                "sections": [
+                    {
+                        "fields": [
+                            {
+                                "type": "textbox", 
+                                "name": "nearest_intersection", 
+                                "label": "Nearest Intersection"
+                            }, 
+                            {
+                                "type": "textbox", 
+                                "name": "intersection_direction_from_site", 
+                                "label": "Intersection Direction"
+                            }, 
+                            {
+                                "type": "text", 
+                                "name": "row_owner", 
+                                "label": "R.O.W Owner"
+                            }, 
+                            {
+                                "type": "text", 
+                                "name": "permitting_jurisdiction", 
+                                "label": "Permitting Jurisdiction"
+                            }, 
+                            {
+                                "type": "textbox", 
+                                "name": "permitting_jurisdiction_contact", 
+                                "label": "Contact"
+                            }, 
+                            {
+                                "type": "text", 
+                                "name": "permits_required", 
+                                "label": "Permits Required"
+                            }, 
+                            {
+                                "type": "text", 
+                                "name": "estimated_permitting_timeline", 
+                                "label": "Estimated Permitting"
+                            }, 
+                            {
+                                "type": "text", 
+                                "name": "estimated_permitting_cost", 
+                                "label": "Estimated Permitting Cost"
+                            }, 
+                            {
+                                "type": "textbox", 
+                                "name": "jx_max_row_pole_height", 
+                                "label": "JX Max R.O.W Pole Height"
+                            }, 
+                            {
+                                "type": "textbox", 
+                                "name": "jurisdiction_max_telecom_pole_height", 
+                                "label": "Jurisdiction Max Telecom Pole Height"
+                            }
+                        ], 
+                        "name": "scrub_permit_info", 
+                        "label": ""
+                    }
+                ]
+            }, 
+            "name": "scrub_permit_info"
+        }, 
+        "name": "scrub_permit_info"
+    }, 
+    "name": "scrub_permit_info"
+}

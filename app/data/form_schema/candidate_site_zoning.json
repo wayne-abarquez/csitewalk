@@ -1,0 +1,91 @@
+{
+    "data": {
+        "data": {
+            "data": {
+                "sections": [
+                    {
+                        "fields": [
+                            {
+                                "type": "textbox", 
+                                "name": "jurisdiction", 
+                                "label": "Jurisdiction"
+                            }, 
+                            {
+                                "type": "textbox", 
+                                "name": "jurisdiction_zoning_contact", 
+                                "label": "Jurisdiction Zoning Contact"
+                            }, 
+                            {
+                                "type": "text", 
+                                "name": "jurisdiction_zoning_email", 
+                                "label": "Contact Email"
+                            }, 
+                            {
+                                "type": "text", 
+                                "name": "jurisdiction_zoning_phone", 
+                                "label": "Contact Phone"
+                            }, 
+                            {
+                                "type": "textbox", 
+                                "name": "jurisdiction_permitting_contact", 
+                                "label": "Jurisdiction Permitting Contact"
+                            }, 
+                            {
+                                "type": "text", 
+                                "name": "jurisdiction_permitting_email", 
+                                "label": "Contact Email"
+                            }, 
+                            {
+                                "type": "text", 
+                                "name": "jurisdiction_permitting_phone", 
+                                "label": "Contact Phone"
+                            }, 
+                            {
+                                "type": "control", 
+                                "children": [
+                                    {
+                                        "type": "text", 
+                                        "name": "district", 
+                                        "label": "District / Classification"
+                                    }, 
+                                    {
+                                        "type": "textbox", 
+                                        "name": "setbacks_list", 
+                                        "label": "List all Setbacks"
+                                    }, 
+                                    {
+                                        "type": "bool", 
+                                        "name": "meet_setbacks", 
+                                        "label": "Does Candidate Meet Setbacks"
+                                    }, 
+                                    {
+                                        "type": "textbox", 
+                                        "name": "brief_description", 
+                                        "label": "Briefly Describe"
+                                    }, 
+                                    {
+                                        "type": "text", 
+                                        "name": "height_limits", 
+                                        "label": "Height Limits"
+                                    }, 
+                                    {
+                                        "type": "textbox", 
+                                        "name": "zoning_miscellaneous", 
+                                        "label": "Miscellaneous"
+                                    }
+                                ], 
+                                "name": "control_zoning_required", 
+                                "label": "Zoning Required"
+                            }
+                        ], 
+                        "name": "section_information", 
+                        "label": "Information"
+                    }
+                ]
+            }, 
+            "name": "candidate_site_zoning"
+        }, 
+        "name": "candidate_site_zoning"
+    }, 
+    "name": "candidate_site_zoning"
+}

@@ -1,0 +1,76 @@
+{
+    "data": {
+        "data": {
+            "data": {
+                "sections": [
+                    {
+                        "fields": [
+                            {
+                                "type": "text", 
+                                "name": "client_address", 
+                                "label": "Client Address"
+                            }, 
+                            {
+                                "type": "text", 
+                                "name": "client_mobile_number", 
+                                "label": "Client Mobile Number"
+                            }, 
+                            {
+                                "type": "text", 
+                                "name": "client_email_address", 
+                                "label": "Client Email Address"
+                            }, 
+                            {
+                                "type": "text", 
+                                "name": "prepared_by_email", 
+                                "label": "Prepared By Email Address"
+                            }
+                        ], 
+                        "name": "contact_info", 
+                        "label": "Contact Info"
+                    }, 
+                    {
+                        "fields": [
+                            {
+                                "type": "textbox", 
+                                "name": "summary_zoning_requirements", 
+                                "label": "Summary of Zoning Requirements"
+                            }, 
+                            {
+                                "type": "textbox", 
+                                "name": "summary_permitting_requirements", 
+                                "label": "Summary of Permitting Requirements"
+                            }
+                        ], 
+                        "name": "section_requirement_summary", 
+                        "label": "Requirement Summary"
+                    }, 
+                    {
+                        "fields": [
+                            {
+                                "type": "textbox", 
+                                "name": "co_locatable_structures", 
+                                "label": "List co-locatable structures in and around search area"
+                            }, 
+                            {
+                                "type": "textbox", 
+                                "name": "am_structures", 
+                                "label": "List any am structures within 3.2 km of search area"
+                            }, 
+                            {
+                                "type": "textbox", 
+                                "name": "search_area_comments", 
+                                "label": "Search Area Comments"
+                            }
+                        ], 
+                        "name": "section_search_area", 
+                        "label": "Search Area Breakdown"
+                    }
+                ]
+            }, 
+            "name": "scip_general_info"
+        }, 
+        "name": "scip_general_info"
+    }, 
+    "name": "scip_general_info"
+}
