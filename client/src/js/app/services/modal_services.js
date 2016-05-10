@@ -7,12 +7,16 @@
     function modalServices($q, $mdDialog, $mdMedia, $rootScope) {
         var service = {};
 
-        var customFullscreen = $mdMedia('xs') || $mdMedia('sm');
+        //var customFullscreen = $mdMedia('xs') || $mdMedia('sm');
 
-        //var addressSearchModal;
+        var addProjectModal,
+            projectDetailModal
+        ;
 
         /* Service Functions */
-        //service.showAddressSearch = showAddressSearch;
+        service.showAddProject = showAddProject;
+        service.showProjectDetail = showProjectDetail;
+        service.hideResolveModal = hideResolveModal;
         service.closeModal = closeModal;
 
         function showModal(modalObj, modalParams) {
@@ -35,18 +39,34 @@
             return dfd.promise;
         }
 
-        //function showAddressSearch(ev) {
-        //    var opts = {
-        //        controller: 'addressSearchController',
-        //        controllerAs: 'vm',
-        //        templateUrl: '/partials/modals/_address_search.html',
-        //        parent: angular.element(document.body),
-        //        targetEvent: ev,
-        //        fullscreen: $mdMedia('sm')
-        //    };
-        //
-        //    return showModal(addressSearchModal, opts);
-        //}
+        function showAddProject(ev, selectedPosition, address) {
+            var opts = {
+                controller: 'addProjectController',
+                controllerAs: 'vm',
+                templateUrl: '/projects/add',
+                parent: angular.element(document.body),
+                targetEvent: ev,
+                locals: {position: selectedPosition, positionAddress: address},
+                fullscreen: $mdMedia('lg')
+            };
+            return showModal(addProjectModal, opts);
+        }
+
+        function showProjectDetail(proj) {
+            var opts = {
+                controller: 'projectDetailsController',
+                controllerAs: 'vm',
+                templateUrl: '/projects/edit',
+                parent: angular.element(document.body),
+                locals: {project: proj},
+                fullscreen: $mdMedia('lg')
+            };
+            return showModal(projectDetailModal, opts);
+        }
+
+        function hideResolveModal (response) {
+            $mdDialog.hide(response);
+        }
 
         // Close Modal
         function closeModal() {

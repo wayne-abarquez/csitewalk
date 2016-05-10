@@ -12,6 +12,12 @@
 
             {% include '/partials/modals/_address_search.html' %}
 
+            <md-button class="md-fab md-primary" style="position:absolute;top:0;right:0;"
+                ng-click="gmapCtl.saveLocation($event)"
+                ng-show="gmapCtl.showSaveLocationBtn">
+                <md-icon>save</md-icon>
+            </md-button>
+
             <md-fab-speed-dial md-direction="up" md-open="isOpen" class="md-scale md-fab-bottom-right"
                                ng-mouseenter="isOpen=true" ng-mouseleave="isOpen=false">
                 <md-fab-trigger>
@@ -25,7 +31,7 @@
                         <md-icon aria-label="Current Location">my_location</md-icon>
                     </md-button>
                     <md-button aria-label="Search Location" class="md-fab md-raised md-mini"
-                               ng-click="gmapCtl.showAddressSearchContainer = !gmapCtl.showAddressSearchContainer">
+                               ng-click="gmapCtl.showAddressSearch()">
                         <md-icon aria-label="Search Location">search</md-icon>
                     </md-button>
                     <md-button aria-label="Point to Location" class="md-fab md-raised md-mini"

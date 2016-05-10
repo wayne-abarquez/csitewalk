@@ -49,6 +49,10 @@ class Users(BaseModel, UserMixin):
     role = db.relationship(Roles, foreign_keys=role_id)
 
     @property
+    def fullname(self):
+        return self.lastname + ', ' +  self.firstname
+
+    @property
     def password(self):
         raise AttributeError('password: write-only field')
 

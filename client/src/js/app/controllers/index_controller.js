@@ -2,15 +2,12 @@
     'use strict';
 
     angular.module('demoApp')
-        .controller('indexController', ['$rootScope', '$mdSidenav', indexController]);
+        .controller('indexController', ['$rootScope', 'Projects', '$mdSidenav', indexController]);
 
-    function indexController($rootScope, $mdSidenav) {
+    function indexController($rootScope, Projects, $mdSidenav) {
         var vm = this;
 
-        // Show Treasure Overlay Spinner
-        $rootScope.spinner = {
-            active: false
-        };
+        $rootScope.projects = [];
 
         vm.initialize = initialize;
         vm.toggleLayerPanel = buildToggler('layerPanel');
@@ -22,7 +19,18 @@
         vm.initialize();
 
         function initialize() {
-            console.log('initialize called');
+            // load all projects here
+            Projects.getList()
+                .then(function(response){
+                    console.log('get projects: ',response);
+
+                    response.forEach(function(p){
+                       $rootScope.projects.push(p);
+                    });
+
+                },function(error){
+                    console.log('get projects error: ', error);
+                });
         }
 
         function buildToggler(navID) {

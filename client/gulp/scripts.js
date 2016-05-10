@@ -26,7 +26,8 @@ gulp.task('vendor-scripts', function () {
         paths.bower + 'ng-file-upload/ng-file-upload.min.js',
         paths.bower + 'sweetalert/dist/sweetalert.min.js',
         paths.bower + 'ngSweetAlert/SweetAlert.min.js',
-        paths.bower + 'v-accordion/dist/v-accordion.min.js'
+        paths.bower + 'v-accordion/dist/v-accordion.min.js',
+        paths.srcLibJs + 'infobox.js'
     ])
         .pipe($.plumber())
         .pipe($.concat('vendor.min.js'))

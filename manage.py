@@ -4,6 +4,7 @@ from flask.ext.script import Manager, prompt_bool
 from flask.ext.migrate import Migrate, MigrateCommand
 from app.data.sample_data import SampleData
 from app.authentication.models import *
+from app.home.models import *
 
 
 manager = Manager(app)
@@ -29,6 +30,12 @@ def dropdb():
 def create_test_users():
     SampleData.load_users()
     print "Created test users"
+
+
+@manager.command
+def create_test_contractors():
+    SampleData.load_contractors()
+    print "Created test contractors"
 
 
 if __name__ == '__main__':

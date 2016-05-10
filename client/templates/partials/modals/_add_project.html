@@ -1,0 +1,44 @@
+{% from 'form_utils.html' import render_component %}
+
+{% macro render(field) %}
+    {{ render_component(field, 'project.', '') }}
+{% endmacro %}
+
+<md-dialog aria-label="Add Project Dialog" flex="50" ng-cloak>
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <h4>New Project</h4>
+            <span flex></span>
+            <md-button class="md-icon-button md-raised" ng-click="vm.save()">
+                <md-icon aria-label="Save Project">save</md-icon>
+            </md-button>
+            <md-button class="md-icon-button" ng-click="vm.close()">
+                <md-icon aria-label="Close dialog">clear</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <md-dialog-content class="md-padding" layout="column">
+        {% raw %}
+        <md-card class="md-padding">
+            <div><b>Project Coordinates: </b> {{ project.coordinates.lat }}, {{project.coordinates.lng}}</div>
+            <div><b>Project Address: </b> {{ project.project_address }}</div>
+        </md-card>
+        {% endraw %}
+        <form id="add-project-form" >
+            <div layout="row">
+                <span flex>{{ render(form.project_name) }}</span>
+                <span flex>{{ render(form.project_manager_id) }}</span>
+            </div>
+            <div layout="row">
+                <span flex>{{ render(form.property_owner) }}</span>
+                <span flex>{{ render(form.contractor_id) }}</span>
+            </div>
+            <div layout="row">
+                <span flex>{{ render(form.civicsolar_account_manager_id) }}</span>
+            </div>
+            <div layout="row">
+                    {{ render(form.authority_having_jurisdiction_or_bldg_dept) }}
+            </div>
+        </form>
+    </md-dialog-content>
+</md-dialog>

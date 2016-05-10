@@ -10,7 +10,7 @@
         //infowindow balloons
         service.INFO_WINDOWS = [];
 
-        service.ZOOM_OUT_LEVEL = 8;
+        service.ZOOM_OUT_LEVEL = 6;
         service.ZOOM_IN_LEVEL = 17;
 
         service.map = null;
@@ -39,6 +39,7 @@
          */
         service.apiAvailable = apiAvailable;
         service.createMap = createMap;
+        service.initializeGeocoder = initializeGeocoder;
         service.createInfoBox = createInfoBox;
         service.openInfoBox = openInfoBox;
         service.closeInfoBox = closeInfoBox;
@@ -151,7 +152,7 @@
             service.map = new google.maps.Map(document.getElementById(mapIdLoc), mapOptions);
 
             // initialize geocoder
-            //service.geocoder = new google.maps.Geocoder();
+            //initializeGeocoder();
 
             // handle window resize event
             google.maps.event.addDomListener(window, 'resize', function () {
@@ -162,6 +163,11 @@
             });
 
             return service.map;
+        }
+
+        function initializeGeocoder () {
+            if(!service.apiAvailable() || service.geocoder) return;
+            service.geocoder = new google.maps.Geocoder();
         }
 
         function createInfoBox(template) {
@@ -753,6 +759,8 @@
         }
 
         function reverseGeocode(latLng) {
+            service.initializeGeocoder();
+
             if (!service.geocoder) return;
 
             var dfd = $q.defer();

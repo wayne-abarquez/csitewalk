@@ -28,7 +28,7 @@ angular.module('demoApp.survey')
                 return;
             }
 
-            surveyLocationServices.showSurveyLocationMarker(place.geometry.location);
+            surveyLocationServices.showSurveyLocationMarker(place.geometry.location, place.formatted_address);
         }
 
     }

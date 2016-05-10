@@ -12,16 +12,18 @@ $white: whitesmoke;
     z-index: 9999999;
     text-align: center;
 
-    span {
+    p {
       font-family: 'Roboto', sans-serif;
       font-weight: 300;
-      color: #FFFFFF;
-      line-height: 5px;
+      //color: #FFFFFF;
+      //line-height: 5px;
       //text-align: center;
       //margin-bottom: 15px;
-      margin-top: 0px;
+      margin-top: 5px;
+      //margin-bottom: 0px;
       //display: block;
-      padding: 0px 30px;
+      color: rgba(255,255,255, 0.7);
+      //padding: 0px 30px;
       font-size: 14px;
     }
 
@@ -33,7 +35,6 @@ $white: whitesmoke;
 
       padding: 5px;
       margin: 5px;
-      margin-bottom: 0px;
       font-size: 20px;
       font-family: 'Roboto', sans-serif;
       font-weight: 300;
