@@ -4,7 +4,7 @@
     {{ render_component(field, 'project.', '') }}
 {% endmacro %}
 
-<md-dialog aria-label="Add Project Dialog" flex="50" ng-cloak>
+<md-dialog id="add-project-modal" aria-label="Add Project Dialog" flex-xs="100" flex-gt-md="50" ng-cloak>
     <md-toolbar>
         <div class="md-toolbar-tools">
             <h4>New Project</h4>
@@ -19,9 +19,12 @@
     </md-toolbar>
     <md-dialog-content class="md-padding" layout="column">
         {% raw %}
-        <md-card class="md-padding">
+        <md-card class="md-padding" style="padding-bottom:0;">
             <div><b>Project Coordinates: </b> {{ project.coordinates.lat }}, {{project.coordinates.lng}}</div>
-            <div><b>Project Address: </b> {{ project.project_address }}</div>
+            <md-input-container class="md-block" style="margin-bottom:0;">
+                <label>Project Address</label>
+                <input type="text" ng-model="project.project_address">
+            </md-input-container>
         </md-card>
         {% endraw %}
         <form id="add-project-form" >
@@ -34,6 +37,7 @@
                 <span flex>{{ render(form.contractor_id) }}</span>
             </div>
             <div layout="row">
+                <span flex>{{ render(form.utility) }}</span>
                 <span flex>{{ render(form.civicsolar_account_manager_id) }}</span>
             </div>
             <div layout="row">

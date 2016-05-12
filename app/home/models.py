@@ -17,6 +17,7 @@ class Projects(BaseModel):
     contractor_id = db.Column(db.Integer, db.ForeignKey('contractors.id'))
     property_owner = db.Column(db.String)
     authority_having_jurisdiction_or_bldg_dept = db.Column(db.Text)
+    utility = db.Column(db.String)
     civicsolar_account_manager_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     coordinates = db.Column(Geometry('POINT'), nullable=False)
     area = db.Column(Geometry('POLYGON'))

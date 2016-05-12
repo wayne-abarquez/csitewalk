@@ -1,0 +1,88 @@
+{
+    "sections": [
+        {
+            "fields": [
+                {
+                    "label": "Utility Meter",
+                    "type": "file", 
+                    "name": "file_utility_meter",
+                    "can_screenshot": true
+                }, 
+                {
+                    "label": "Service Panel Label",
+                    "type": "file", 
+                    "name": "file_service_panel_label",
+                    "can_screenshot": true
+                }, 
+                {
+                    "label": "Main Breaker",
+                    "type": "file", 
+                    "name": "file_main_breaker",
+                    "can_screenshot": true
+                }, 
+                {
+                    "label": "All Breakers",
+                    "type": "file", 
+                    "name": "file_all_breaker",
+                    "can_screenshot": false
+                }, 
+                {
+                    "label": "Sub Panel",
+                    "type": "file", 
+                    "name": "file_sub_panel",
+                    "can_screenshot": false
+                }, 
+                {
+                    "label": "Array Site 1",
+                    "type": "file", 
+                    "name": "file_array_site_1",
+                    "can_screenshot": false
+                },
+                {
+                    "label": "Array Site 2",
+                    "type": "file",
+                    "name": "file_array_site_2",
+                    "can_screenshot": false
+                },
+                {
+                    "label": "Array Site 3",
+                    "type": "file",
+                    "name": "file_array_site_3",
+                    "can_screenshot": false
+                },
+                {
+                    "label": "Roof Material",
+                    "type": "file",
+                    "name": "file_roof_material",
+                    "can_screenshot": false
+                },
+                {
+                    "label": "Inverter Location",
+                    "type": "file",
+                    "name": "file_inverter_location",
+                    "can_screenshot": false
+                },
+                {
+                    "label": "Sketch of Array Location",
+                    "type": "file",
+                    "name": "file_sketch_array_location",
+                    "can_screenshot": false
+                },
+                {
+                    "label": "Interval Data - CSV or XLS",
+                    "type": "file",
+                    "name": "file_interval_data",
+                    "can_screenshot": false
+                },
+                {
+                    "label": "Existing 1-Line drawing",
+                    "type": "file",
+                    "name": "file_existing_1_line_drawing",
+                    "can_screenshot": false
+                }
+            ], 
+            "name": "scip_files", 
+            "label": ""
+        }
+    ]
+}

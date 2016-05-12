@@ -1,0 +1,173 @@
+{
+  "sections": [
+    {
+      "name": "system_info",
+      "label": "System Info",
+      "fields": [
+        {
+          "type": "text",
+          "name": "approx_system_size",
+          "label": "Approximate system size (kW)"
+        },
+        {
+          "type": "select",
+          "name": "system_type",
+          "label": "System Type",
+          "values": ";;Grid Tied;;Grid tied with Storage;;Off Grid"
+        },
+        {
+          "type": "select",
+          "name": "service_type",
+          "label": "Service Type",
+          "values": ";;120/240 Split Phase;;120/208 Wye;;240 Delta;;240 High Leg Delta;;480 Wye;;480 Delta;;Other"
+        },
+        {
+          "type": "select",
+          "name": "main_service_panel_buss_rating",
+          "label": "Main Service Panel Buss Rating - Amps",
+          "values": ";;100;;200;;225;;Other"
+        },
+        {
+          "type": "select",
+          "name": "main_service_panel_breaker_rating",
+          "label": "Main Service Panel Breaker Rating",
+          "values": ";;100;;125;;150;;175;;200;;225;;400;;600;;Other"
+        },
+        {
+          "label": "Check here if connecting to a sub-panel or needing a service side connection",
+          "type": "control",
+          "children": [
+            {
+              "name": "sub_panel_amperage_rating",
+              "label": "Sub Panel Amperage Rating",
+              "type": "select",
+              "values": ";;Size It for Me;;100;;200;;400;;Other"
+            },
+            {
+              "name": "sub_panel_main_breaker_size",
+              "label": "Sub Panel Main Breaker Size",
+              "type": "select",
+              "values": ";;Size It for Me;;None;;100;;200;;Other"
+            },
+            {
+              "type": "text",
+              "name": "sub_panel_wire_size",
+              "label": "Sub Panel Feeder Size - Wire Size"
+            }
+          ],
+          "name": "control_connecting_subpanel_or_needing_service_side_connection"
+        },
+        {
+          "name": "is_revenue_grade_meter_needed",
+          "label": "Check here if Revenue Grade Meter needed",
+          "type": "bool"
+        },
+        {
+          "name": "is_separate_ac_disconnect_needed",
+          "label": "Check here if separate AC disconnect needed",
+          "type": "bool"
+        }
+      ]
+    },
+    {
+      "name": "mounting_info",
+      "label": "Mounting Type",
+      "fields": [
+        {
+          "label": "Roof",
+          "type": "control",
+          "name": "control_roof_mounting_type",
+          "children": [
+            {
+              "name": "type_of_roof",
+              "label": "Type of Roof",
+              "type": "select",
+              "values": ";;Flat;;Pitched;;Other"
+            },
+            {
+              "name": "roof_pitch",
+              "label": "Roof Pitch",
+              "type": "select",
+              "values": ";;2/12 - 10 Degrees;;4/12 - 18 Degrees;;6/12 - 26 Degrees;;8/12 - 35 Degrees;;10/12 - 40 Degrees;;12/12 - 45 Degrees;;Other"
+            },
+            {
+              "name": "roofing_type",
+              "label": "Roofing Type",
+              "type": "select",
+              "values": ";;Comp Shingle;;Wood Shingle;;Flat Tile/Slate;;Barrel Tile;;Standing Seam;;Corrugated Metal;;TPO;;Built Up;;Foam;;Other"
+            },
+            {
+              "name": "rafter_size",
+              "label": "Rafter Size",
+              "type": "select",
+              "values": ";;2x4;;2x6;;2x8;;2x10;;2x12;;Manufactured truss;;Other"
+            },
+            {
+              "name": "rafter_spacing",
+              "label": "Rafter Spacing",
+              "type": "select",
+              "values": ";;12';;16';;24';;Other"
+            }
+          ]
+        },
+        {
+          "name": "bool_carport_mounting_type",
+          "label": "Carport",
+          "type": "bool"
+        },
+        {
+          "label": "Ground",
+          "type": "control",
+          "name": "control_ground_mounting_type",
+          "children": [
+            {
+              "name": "soil_type",
+              "label": "Soil type",
+              "type": "select",
+              "values": ";;Crystalline Bedrock;;Sedimentary / Foliated Rock;;Sandy Gravel and / or Gravel;;Sandy / Silty Sand / Clayey Sand;;Silty Gravel / Clayey Gravel;;Clay / Sandy Clay / Silty Clay;;Clayey Silt / Silt / Sandy Silt"
+            },
+            {
+              "type": "text",
+              "name": "array_tilt_in_degrees",
+              "label": "Array Tilt in Degrees"
+            },
+            {
+              "type": "text",
+              "name": "array_orientation_180_south",
+              "label": "Array Orientation - 180 = South"
+            },
+            {
+              "name": "foundation_type",
+              "label": "Foundation Type",
+              "type": "select",
+              "values": ";;Poured;;Helical Piers;;Ballast;;Driven Piles;;Other"
+            }
+          ]
+        }
+
+      ]
+    },
+    {
+     "name": "form_improvement",
+     "label": "Tell Us",
+     "fields": [
+       {
+         "name": "was_this_form_useful",
+         "label": "Was this form useful?",
+         "type": "select",
+         "values": ";;Yes, very;;Good, but needs work;;No"
+       },
+       {
+         "name": "did_you_use_this_form_on_mobile_device",
+         "label": "Did you use this form on a mobile device?",
+         "type": "bool"
+       },
+       {
+         "name": "tell_us_how_to_improve_it",
+         "label": "If you have time, tell us how you'd like us to improve it.",
+         "type": "textbox"
+       }
+      ]
+    }
+  ]
+}

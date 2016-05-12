@@ -1,4 +1,4 @@
-$bottom-list-panel-height: 50%;
+$bottom-list-panel-height: 45%;
 $bottom-list-panel-width: 100%;
 
 $container-height: calc(100% - 10px);
@@ -8,7 +8,24 @@ $list-footer-width: calc(100% - 40px);
 $list-content-height: calc(100% - 80px);
 $list-footer-height: 43px;
 
+#map-bottom-panel {
+  position: absolute;
+  bottom: 18px;
+  right: 45px;
+  z-index: 3;
 
+  .row {
+    margin: 0;
+
+    button {
+      margin: 5px;
+      padding: 2px;
+      span {
+        padding: 5px;
+      }
+    }
+  }
+}
 
 .bottom_list_panel {
   position: fixed;
@@ -25,29 +42,52 @@ $list-footer-height: 43px;
     border-radius: 4px;
 
     md-content {
-      height: $list-content-height;
+      height: 100%;
 
       md-table-container {
+        max-height: 100%;
+        min-height: 70%;
         margin-bottom: 20px;
 
         table.md-table {
+          // Fixes last tr on tbody offset
+          padding-bottom: 80px !important;
 
-          thead  {
-            tr{
+          thead {
+            tr {
+              height: 40px;
               text-align: center;
-            }
-            tr:last-child {
-              transition: height 0.2s ease-in-out;
-            }
-            tr:last-child th {
-              vertical-align: bottom;
               border-bottom: 1px rgba(0, 0, 0, 0.12) solid;
+
+              //th {
+              //  height: 20px !important;
+              //}
             }
+          }
+
+          thead.md-table-progress {
+            display: none;
           }
 
           tbody {
             tr {
-              text-align:center;
+              min-height: 0;
+              height: 40px;
+              text-align: center;
+
+              td {
+                min-height: 0;
+                height: 30px;
+                padding: 0px 5px;
+
+                button {
+                  margin: 2px;
+                  line-height: 30px;
+                  min-height: 30px;
+                  height: 30px;
+                  font-size: 12px;
+                }
+              }
             }
             tr.md-row:not([disabled]) {
               &:hover {
@@ -67,6 +107,15 @@ $list-footer-height: 43px;
       border-top-right-radius: 4px;
     }
 
+    md-toolbar.primary-table-toolbar {
+      background-color: $primary-color !important;
+      color: $primary-font-color;
+
+      md-icon {
+        color: $primary-font-color;
+      }
+    }
+
     .toolbar-list {
       md-icon {
         color: white !important;
@@ -75,18 +124,21 @@ $list-footer-height: 43px;
 
     md-toolbar.toolbar-search {
       background-color: white !important;
-
+      button span {
+        color: #888;
+      }
       .md-toolbar-tools, md-icon, h3 {
         color: #888 !important;
       }
       md-input-container {
         input {
+          color: #888;
           border: none !important;
         }
       }
     }
 
-    .list_footer {
+    .table-footer {
       position: fixed;
       bottom: 20px;
       left: 20px;
@@ -101,6 +153,11 @@ $list-footer-height: 43px;
 
       md-table-pagination {
         height: $list-footer-height;
+        width: 100% !important;
+        position: absolute;
+        bottom: 0px;
+        left: 0px;
+        justify-content: flex-start !important;
         border-top: none;
 
         md-icon {

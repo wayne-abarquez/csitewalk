@@ -1,0 +1,113 @@
+{% raw %}
+<section id="lot-list-table-container" class="bottom_list_panel"
+         ng-controller="projectListController as listCtl"
+         ng-show="indexCtl.showList"
+         ng-cloak>
+
+    <div class="container">
+        <md-content style="overflow: hidden;">
+
+            <!-- PRIMARY Toolbar -->
+            <md-toolbar class="md-table-toolbar md-default primary-table-toolbar" ng-hide="listCtl.filter.show">
+                <div class="md-toolbar-tools">
+                    <span class="table-header-title">Projects List</span>
+
+                    <div flex="" class="flex"></div>
+                    <md-button class="md-icon-button" ng-click="listCtl.filter.show = true">
+                        <md-tooltip md-direction="top">Filter List</md-tooltip>
+                        <md-icon>filter_list</md-icon>
+                    </md-button>
+                    <md-button class="md-icon-button" ng-click="indexCtl.showList = false">
+                        <md-tooltip md-direction="top">Close Table</md-tooltip>
+                        <md-icon>close</md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+
+            <!-- FILTER Toolbar -->
+            <md-toolbar class="md-table-toolbar md-default toolbar-search"
+                        ng-show="listCtl.filter.show">
+                <div class="md-toolbar-tools">
+                    <md-icon>search</md-icon>
+                    <form flex name="listCtl.filter.form">
+                        <md-input-container md-no-float class="md-block" style="max-height: 30px; margin-top: 25px;">
+                            <input type="text" ng-model="listCtl.query.filter" placeholder="search">
+                        </md-input-container>
+                    </form>
+                    <md-button ng-click="listCtl.removeFilter()">
+                        <span hide-xs>Back</span>
+                        <md-icon>arrow_forward</md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+
+            <!-- TABLE -->
+            <md-table-container>
+                <table md-table md-progress="">
+
+                    <!-- TABLE HEAD -->
+                    <thead md-head md-order="listCtl.query.order" md-on-reorder="listCtl.onReorder">
+                    <tr md-row>
+                        <th md-column>Status</th>
+                        <th md-column>Project</th>
+                        <th md-column hide-xs>Project Manager</th>
+                        <th md-column hide-xs>Contractor</th>
+                        <th md-column hide-xs>CS Account Manager</th>
+                        <th md-column style="text-align:center;">Action</th>
+                    </tr>
+                    </thead>
+
+                    <!-- TABLE BODY -->
+                    <tbody md-body>
+                    <tr md-row
+                        ng-repeat="p in listCtl.projects
+                        | orderBy: listCtl.query.order
+                        | limitTo: listCtl.query.limit : (listCtl.query.page - 1) * listCtl.query.limit"
+                        ng-click="listCtl.onClickRow(p)">
+
+                        <!-- Project Status -->
+                        <td md-cell
+                            ng-class="{'in-process': p.project_status == 'In-Process',
+                                       'submitted': p.project_status == 'Submitted',
+                                       'approved': p.project_status == 'Approved'}">
+                            <b>{{p.project_status}}</b>
+                        </td>
+
+                        <!-- Project Name -->
+                        <td md-cell>{{p.project_name}}</td>
+
+                        <!-- Project Manager -->
+                        <td md-cell hide-xs>{{ p.project_manager ? p.project_manager.fullname : 'Unassigned' }}</td>
+
+                        <!-- Contractor -->
+                        <td md-cell hide-xs>{{p.contractor.name}}</td>
+
+                        <!-- CivicSolar Account Manager -->
+                        <td md-cell hide-xs>{{ p.civicsolar_account_manager ? p.civicsolar_account_manager.fullname : 'Unassigned' }}</td>
+
+                        <td md-cell style="text-align:center;">
+                            <md-button class="md-raised" ng-click="listCtl.showProjectDetails(p); indexCtl.showList = false">View Details</md-button>
+                        </td>
+
+                    </tr>
+                    </tbody>
+
+                </table>
+            </md-table-container>
+
+            <!-- FOOTER -->
+            <md-toolbar class="md-table-toolbar md-default table-footer">
+                <div layout="row" layout-align="start center" flex>
+                    <md-table-pagination
+                            md-limit="listCtl.query.limit"
+                            md-page="listCtl.query.page"
+                            md-total="{{listCtl.projects.length}}"
+                            md-page-select>
+                    </md-table-pagination>
+                </div>
+            </md-toolbar>
+
+        </md-content>
+    </div>
+</section>
+{% endraw %}

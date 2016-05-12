@@ -16,9 +16,9 @@ class SchemasResource(Resource):
 
     @marshal_with(schema_fields)
     def get(self):
-        # if current_user and current_user.is_authenticated:
-        return get_form_schemas()
-        # abort(401, message="Requires user to login")
+        if current_user and current_user.is_authenticated:
+            return get_form_schemas()
+        abort(401, message="Requires user to login")
 
 
 class SchemasDetailResource(Resource):
@@ -27,8 +27,10 @@ class SchemasDetailResource(Resource):
     """
 
     def post(self, name):
-        update_form_schema(name, request.json)
-        return dict(status=200, message="OK")
+        if current_user and current_user.is_authenticated:
+            update_form_schema(name, request.json)
+            return dict(status=200, message="OK")
+        abort(401, message="Requires user to login")
 
 
 rest_api.add_resource(SchemasResource, '/api/form_schemas')

@@ -1,0 +1,3 @@
+
+class ProjectNotFoundError(ValueError):
+    pass

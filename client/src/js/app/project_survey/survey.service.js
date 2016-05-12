@@ -84,9 +84,6 @@ angular.module('demoApp')
         function dropAndPointSurveyLocation () {
             positionSurveyLocationMarker(gmapServices.map.getCenter());
             locationMarker.setDraggable(true);
-            //gmapServices.addListener(locationMarker, 'dragend', function(e){
-            //    geocodeLocation(e.latLng);
-            //});
         }
 
         function getLocation () {

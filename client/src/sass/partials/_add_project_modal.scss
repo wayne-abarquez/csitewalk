@@ -1,0 +1,20 @@
+#add-project-modal {
+
+  //height: 80%;
+
+  @media screen and (max-width: 456px) {
+    height:100%;
+  }
+
+  form {
+    md-input-container {
+      //margin: 10px 0;
+
+      label {
+        height: 25px;
+        width: 100%;
+      }
+    }
+  }
+
+}

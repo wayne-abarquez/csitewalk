@@ -2,15 +2,16 @@ from glob import glob
 import os
 import json
 import logging
+from app import app
 
 log = logging.getLogger(__name__)
 
-form_schema_dir = 'app/data/form_schema/'
+FORM_SCHEMA_DIR = app.config['FORM_SCHEMA_DIR']
 
 
 def get_form_schemas():
     schemas = []
-    for filepath in glob(form_schema_dir + '*.json'):
+    for filepath in glob(FORM_SCHEMA_DIR + '*.json'):
         with open(filepath) as json_file:
             try:
                 schema = json.load(json_file)
@@ -23,7 +24,8 @@ def get_form_schemas():
 
 def update_form_schema(name, json_data):
     schema = json.dumps(json_data, indent=4)
-    filename = form_schema_dir + name + '.json'
+    filename = FORM_SCHEMA_DIR + name + '.json'
     f = open(filename, 'w')
     f.write(schema)
     f.close()
+    return

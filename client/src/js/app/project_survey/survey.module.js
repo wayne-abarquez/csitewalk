@@ -2,7 +2,7 @@
     'use strict';
 
     angular
-        .module('demoApp.survey', []);
+        .module('demoApp.survey', ['ngFileUpload']);
 
 }());
 

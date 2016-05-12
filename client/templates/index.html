@@ -12,14 +12,24 @@
 
             {% include '/partials/modals/_address_search.html' %}
 
-            <md-button class="md-fab md-primary" style="position:absolute;top:0;right:0;"
+            <!-- Project List Panel -->
+            {% include "partials/_project_list.html" %}
+
+            {% raw %}
+
+            <md-button id="show-project-list-btn" class="md-fab md-accent"
+                       ng-click="indexCtl.showList = !indexCtl.showList"
+                       ng-hide="indexCtl.showList">
+                <md-icon>{{ indexCtl.showList ? 'grid_on' : 'grid_off' }}</md-icon>
+            </md-button>
+
+            <md-button id="save-location-btn" class="md-fab md-primary"
                 ng-click="gmapCtl.saveLocation($event)"
                 ng-show="gmapCtl.showSaveLocationBtn">
                 <md-icon>save</md-icon>
             </md-button>
 
-            <md-fab-speed-dial md-direction="up" md-open="isOpen" class="md-scale md-fab-bottom-right"
-                               ng-mouseenter="isOpen=true" ng-mouseleave="isOpen=false">
+            <md-fab-speed-dial md-direction="up" md-open="isOpen" class="md-scale md-fab-bottom-right">
                 <md-fab-trigger>
                     <md-button aria-label="menu" class="md-fab md-primary" style="margin:0;">
                         <md-icon>add</md-icon>
@@ -41,6 +51,7 @@
                 </md-fab-actions>
             </md-fab-speed-dial>
 
+            {% endraw %}
 
         </div>
     {% raw %}

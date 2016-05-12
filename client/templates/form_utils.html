@@ -8,30 +8,33 @@
 
     {% set model_name = prefix_name + section_name + field.name %}
     {% set parent_name = model_name.split('.')[0] %}
+    {% set error_model_name = prefix_name + 'errors.' + field.name %}
 
     {# This is how we add additional attributes to form-controls #}
     {# by appending key-value pair entries into python's kwargs parameter. #}
     {% set success = kwargs.update({'ng-model':model_name}) %}
 {#    {% set value = "{'has-error':" + "hasError(" +parent_name+ ", '" +model_name+ "'), 'has-warning':hasWarning("+model_name+")}" %}#}
-    {% set success = kwargs.update({'ng-class':value}) %}
+{#    {% set success = kwargs.update({'ng-class':value}) %}#}
 {#    {% set value = "setErrorTooltip(" +parent_name+ ", '" +model_name+ "')" %}#}
-    {% set success = kwargs.update({'ng-mouseenter':value}) %}
+{#    {% set success = kwargs.update({'ng-mouseenter':value}) %}#}
+{#    {% set success = kwargs.update({'tooltip': "{{ errorTooltip }}" }) %}#}
 {#    {% set success = kwargs.update({'ng-disabled':'!canEditField("'+model_name+'")'}) %}#}
+
 
     {# This is a hack for setting our ForeignKey values using their RelationShip models #}
     {% if field.name == 'contractor_id' %}
-        {% set success = kwargs.update({'ng-init':model_name + '=projects.contractor.id'}) %}
+        {% set success = kwargs.update({'ng-init':model_name + '=project.contractor.id'}) %}
     {% elif field.name == 'project_manager_id' %}
-        {% set success = kwargs.update({'ng-init':model_name + '=projects.project_manager.id'}) %}
+        {% set success = kwargs.update({'ng-init':model_name + '=project.project_manager.id'}) %}
     {% elif field.name == 'civicsolar_account_manager_id' %}
-        {% set success = kwargs.update({'ng-init':model_name + '={0}.civicsolar_manager.id'.format(parent_name)}) %}
+        {% set success = kwargs.update({'ng-init':model_name + '=project.civicsolar_account_manager.id'}) %}
     {% endif %}
 
     {# This is used for StringField filters so we can do onDemand validation or format conversions #}
     {# Maybe there's a better angular way to do this, but it works for now. #}
     {% if field.type == 'StringField' or field.type == 'IntegerField' or field.type == 'FloatField' %}
         {% set success = kwargs.update({'ng-model-options':"{updateOn: 'blur'}"}) %}
-        {% set success = kwargs.update({'ng-change':'onTextChanged('+parent_name+', "'+model_name+'", '+model_name+')'}) %}
+{#        {% set success = kwargs.update({'ng-change':'onTextChanged('+parent_name+', "'+model_name+'", '+model_name+')'}) %}#}
     {% endif %}
 
     {% if field.type == 'BooleanField' or field.type == 'ControlledField' %}
@@ -50,7 +53,56 @@
         {{ render_field(field, **kwargs) }}
     {% endif %}
 
-{% endmacro%}
+{% endmacro %}
+
+
+{% macro render_file_field(field) %}
+    {% set model_name = kwargs.get('ng-model', '') %}
+    {% set parent_name = model_name.split('.')[0] %}
+    <table style="width: 100%;">
+        <tr style="width: 100%;">
+            <td colspan="3"><label>{{ field.label }}</label></td>
+        </tr>
+        <tr style="width: 100%;">
+            <td style="width: 100%; padding-left: 10px;">
+
+                <md-button class="md-icon-button md-accent md-raised"
+                     ngf-select
+                     ngf-accept="'*.pdf,*.jpg,*.jpeg,*.png,*.tiff,*.tif'"
+                     ngf-change="fileChanged($files, $rejectedFiles, {{ parent_name }}, '{{ model_name }}')"
+                     ngf-capture="'camera'"
+                     ngf-multiple="false"
+                     {% if kwargs.has_key('ng-model') %}
+                        ng-model="{{ model_name }}_to_upload"
+                     {% endif %}>
+                    <md-icon>camera_alt</md-icon>
+                </md-button>
+
+                <md-button class="md-icon-button md-raised"
+                     ng-disabled="{{ model_name }} == null || {{ model_name }} == ''"
+                     ng-click="filePreview({{ model_name }})">
+                    <md-icon>visibility</md-icon>
+                </md-button>
+
+{#                {% if field.can_screenshot %}#}
+{#                    <md-button class="md-icon-button md-raised"#}
+{#                         ng-click="screenshot({{ parent_name }}, '{{model_name}}')">#}
+{#                        <md-icon>crop_free</md-icon>#}
+{#                    </md-button>#}
+{#                {% endif %}#}
+                <input type="text" ng-model="{{ model_name }}" value=""
+                       ng-init="{{ model_name }} = {{ model_name }} || ''" ng-hide="true">
+                <input type="text" ng-model="{{ model_name }}_status" value=""
+                       ng-init="{{ model_name }}_status = {{ model_name }}_status || ''" ng-hide="true">
+{#            TODO: create displayFilename directive #}
+{#                <span>{%raw%} {{ {%endraw%} {{ model_name }} | displayFilename {%raw%} }} {%endraw%}</span>#}
+{#                <span>{%raw%} {{ {%endraw%} {{ model_name }}_status {%raw%} }} {%endraw%}</span>#}
+            </td>
+        </tr>
+    </table><md-divider></md-divider>
+{% endmacro %}
+
+
 
 {% macro render_fields(form, prefix_name, section_name) %}
     {% set index = 0 %}
@@ -60,7 +112,7 @@
         {% set is_control = field.type == 'ControlledField' %}
 
         {% if loop.index0 % 2 == index %}
-            <div class="row">
+            <div layout="row">
             {# textarea is a special case, where we force the next check #}
             {# to always close this div and increment the index checker #}
             {% set index = ((index+1)%2) if (is_file or is_text_area or is_control) else index %}
@@ -69,16 +121,16 @@
         {# Immediately close the row div tag for a TextArea and a ControlledField #}
         {# Otherwise, render fields in two columns per row. #}
         {% if is_text_area or is_file %}
-                <div flex-lt-md="100">{{render_component(field, prefix_name, section_name, **kwargs)}}</div>
+                <div flex="100">{{render_component(field, prefix_name, section_name, **kwargs)}}</div>
             </div>
         {% elif is_control %}
-                <div flex-lt-md="100">{{render_component(field, prefix_name, section_name, **kwargs)}}</div>
+                <div flex="100">{{render_component(field, prefix_name, section_name, **kwargs)}}</div>
             </div>
             {# Recursively render all children of a ControlledField #}
             {% set model_name = prefix_name + section_name + field.name %}
             {{render_fields(field.children_fields, prefix_name, section_name, **{'ng-show':model_name})}}
         {% else %}
-                <div flex-lt-md="50">{{render_component(field, prefix_name, section_name, **kwargs)}}</div>
+                <div flex="50">{{render_component(field, prefix_name, section_name, **kwargs)}}</div>
             {% if loop.last or loop.index0 % 2 == ((index+1)%2) %}
             </div>
             {% endif %}

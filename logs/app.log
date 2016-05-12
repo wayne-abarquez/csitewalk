@@ -313,3 +313,336 @@
 2016-05-10 21:05:19,878 INFO - run.py <module>: Starting app
 2016-05-10 21:12:42,707 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
 2016-05-10 21:12:42,866 INFO - run.py <module>: Starting app
+2016-05-11 12:48:29,000 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 12:48:29,328 INFO - run.py <module>: Starting app
+2016-05-11 15:08:00,472 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 15:08:00,656 INFO - run.py <module>: Starting app
+2016-05-11 15:08:53,725 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 15:08:53,911 INFO - run.py <module>: Starting app
+2016-05-11 15:18:25,434 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 15:18:25,634 INFO - run.py <module>: Starting app
+2016-05-11 15:31:44,605 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 15:31:44,808 INFO - run.py <module>: Starting app
+2016-05-11 15:34:11,134 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 15:34:11,327 INFO - run.py <module>: Starting app
+2016-05-11 15:35:45,250 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 15:35:45,456 INFO - run.py <module>: Starting app
+2016-05-11 15:38:06,508 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 15:38:06,700 INFO - run.py <module>: Starting app
+2016-05-11 15:39:25,246 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 15:39:25,437 INFO - run.py <module>: Starting app
+2016-05-11 15:40:55,147 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 15:40:55,336 INFO - run.py <module>: Starting app
+2016-05-11 15:42:03,045 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 15:42:03,249 INFO - run.py <module>: Starting app
+2016-05-11 15:42:52,719 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 15:42:52,908 INFO - run.py <module>: Starting app
+2016-05-11 15:46:58,539 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 15:46:58,733 INFO - run.py <module>: Starting app
+2016-05-11 15:53:18,361 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 15:53:18,561 INFO - run.py <module>: Starting app
+2016-05-11 16:00:34,767 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 16:00:35,232 INFO - run.py <module>: Starting app
+2016-05-11 16:00:59,378 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 16:01:00,099 INFO - run.py <module>: Starting app
+2016-05-11 16:01:33,136 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 16:01:33,341 INFO - run.py <module>: Starting app
+2016-05-11 16:02:22,891 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 16:02:23,093 INFO - run.py <module>: Starting app
+2016-05-11 16:07:59,639 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 16:07:59,829 INFO - run.py <module>: Starting app
+2016-05-11 16:08:45,626 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 16:08:46,297 INFO - run.py <module>: Starting app
+2016-05-11 16:09:42,945 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 16:09:43,144 INFO - run.py <module>: Starting app
+2016-05-11 16:11:39,993 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 16:11:40,184 INFO - run.py <module>: Starting app
+2016-05-11 16:19:08,441 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 16:19:08,663 INFO - run.py <module>: Starting app
+2016-05-11 16:20:13,882 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 16:20:14,248 INFO - run.py <module>: Starting app
+2016-05-11 16:29:23,901 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 16:29:24,091 INFO - run.py <module>: Starting app
+2016-05-11 16:41:24,888 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 16:41:25,239 INFO - run.py <module>: Starting app
+2016-05-11 18:22:42,566 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 18:22:56,794 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 18:22:57,010 INFO - run.py <module>: Starting app
+2016-05-11 18:26:08,710 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 18:26:09,664 INFO - run.py <module>: Starting app
+2016-05-11 18:27:04,635 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 18:27:04,825 INFO - run.py <module>: Starting app
+2016-05-11 18:27:42,683 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 18:27:42,883 INFO - run.py <module>: Starting app
+2016-05-11 18:30:09,066 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 18:30:09,257 INFO - run.py <module>: Starting app
+2016-05-11 18:33:33,183 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 18:33:33,384 INFO - run.py <module>: Starting app
+2016-05-11 18:35:02,469 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 18:35:02,665 INFO - run.py <module>: Starting app
+2016-05-11 18:36:24,147 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 18:36:24,355 INFO - run.py <module>: Starting app
+2016-05-11 18:37:49,492 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 18:37:49,695 INFO - run.py <module>: Starting app
+2016-05-11 18:38:17,513 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 18:38:17,831 INFO - run.py <module>: Starting app
+2016-05-11 18:38:32,647 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 18:38:33,039 INFO - run.py <module>: Starting app
+2016-05-11 18:41:43,838 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 18:42:09,493 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 18:42:12,779 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 18:42:12,987 INFO - run.py <module>: Starting app
+2016-05-11 18:45:51,186 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 18:45:51,377 INFO - run.py <module>: Starting app
+2016-05-11 18:46:51,370 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 18:46:51,569 INFO - run.py <module>: Starting app
+2016-05-11 18:50:46,383 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 18:50:46,572 INFO - run.py <module>: Starting app
+2016-05-11 18:57:22,373 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 18:57:22,608 INFO - run.py <module>: Starting app
+2016-05-11 18:58:46,121 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 18:58:46,580 INFO - run.py <module>: Starting app
+2016-05-11 19:01:28,145 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 19:01:28,367 INFO - run.py <module>: Starting app
+2016-05-11 19:01:54,412 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 19:01:54,691 INFO - run.py <module>: Starting app
+2016-05-11 19:04:04,506 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 19:04:04,698 INFO - run.py <module>: Starting app
+2016-05-11 19:05:50,001 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 19:05:50,195 INFO - run.py <module>: Starting app
+2016-05-11 19:07:27,324 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 19:07:27,518 INFO - run.py <module>: Starting app
+2016-05-11 19:08:35,247 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 19:08:35,447 INFO - run.py <module>: Starting app
+2016-05-11 19:08:59,268 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 19:09:00,074 INFO - run.py <module>: Starting app
+2016-05-11 19:15:44,865 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 19:15:45,054 INFO - run.py <module>: Starting app
+2016-05-11 19:18:39,422 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 19:18:39,901 INFO - run.py <module>: Starting app
+2016-05-11 19:20:26,167 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 19:20:26,362 INFO - run.py <module>: Starting app
+2016-05-11 19:21:53,887 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 19:21:54,089 INFO - run.py <module>: Starting app
+2016-05-11 19:23:42,551 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 19:23:42,753 INFO - run.py <module>: Starting app
+2016-05-11 19:24:11,153 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 19:24:12,169 INFO - run.py <module>: Starting app
+2016-05-11 19:25:19,357 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 19:25:19,561 INFO - run.py <module>: Starting app
+2016-05-11 19:27:03,420 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 19:27:03,611 INFO - run.py <module>: Starting app
+2016-05-11 19:29:03,570 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 19:29:03,770 INFO - run.py <module>: Starting app
+2016-05-11 19:31:03,757 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 19:31:03,966 INFO - run.py <module>: Starting app
+2016-05-11 19:31:37,755 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 19:31:37,942 INFO - run.py <module>: Starting app
+2016-05-11 19:32:16,160 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 19:32:16,350 INFO - run.py <module>: Starting app
+2016-05-11 19:32:53,872 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 19:32:54,095 INFO - run.py <module>: Starting app
+2016-05-11 19:35:17,354 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 19:35:18,187 INFO - run.py <module>: Starting app
+2016-05-11 19:35:53,596 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 19:35:53,872 INFO - run.py <module>: Starting app
+2016-05-11 19:37:01,224 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 19:37:01,415 INFO - run.py <module>: Starting app
+2016-05-11 20:05:13,318 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 20:05:13,553 INFO - run.py <module>: Starting app
+2016-05-11 20:12:53,945 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 20:12:54,365 INFO - run.py <module>: Starting app
+2016-05-11 20:14:42,971 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 20:14:43,159 INFO - run.py <module>: Starting app
+2016-05-11 20:20:20,561 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 20:20:20,755 INFO - run.py <module>: Starting app
+2016-05-11 20:49:24,904 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 20:49:25,094 INFO - run.py <module>: Starting app
+2016-05-11 21:35:26,067 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 21:35:26,458 INFO - run.py <module>: Starting app
+2016-05-11 21:37:52,654 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 21:37:52,862 INFO - run.py <module>: Starting app
+2016-05-11 22:31:05,161 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 22:31:05,358 INFO - run.py <module>: Starting app
+2016-05-11 22:34:45,359 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 22:34:45,551 INFO - run.py <module>: Starting app
+2016-05-11 22:36:50,028 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 22:36:50,543 INFO - run.py <module>: Starting app
+2016-05-11 22:39:47,098 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-11 22:39:47,289 INFO - run.py <module>: Starting app
+2016-05-12 12:42:06,631 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 12:42:06,850 INFO - run.py <module>: Starting app
+2016-05-12 12:43:46,140 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 12:43:46,337 INFO - run.py <module>: Starting app
+2016-05-12 12:48:59,093 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 12:48:59,304 INFO - run.py <module>: Starting app
+2016-05-12 12:50:09,247 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 12:50:09,440 INFO - run.py <module>: Starting app
+2016-05-12 12:53:31,787 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 12:53:32,153 INFO - run.py <module>: Starting app
+2016-05-12 12:55:25,813 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 12:55:26,003 INFO - run.py <module>: Starting app
+2016-05-12 12:57:38,939 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 12:57:39,143 INFO - run.py <module>: Starting app
+2016-05-12 12:59:36,476 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 12:59:36,664 INFO - run.py <module>: Starting app
+2016-05-12 13:09:35,310 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 13:09:35,605 INFO - run.py <module>: Starting app
+2016-05-12 13:12:37,544 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 13:12:37,815 INFO - run.py <module>: Starting app
+2016-05-12 13:52:51,370 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 13:52:51,558 INFO - run.py <module>: Starting app
+2016-05-12 13:56:11,936 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 13:56:12,137 INFO - run.py <module>: Starting app
+2016-05-12 14:00:14,700 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 14:00:14,883 INFO - run.py <module>: Starting app
+2016-05-12 14:01:21,808 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 14:01:21,995 INFO - run.py <module>: Starting app
+2016-05-12 14:01:39,850 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 14:01:40,045 INFO - run.py <module>: Starting app
+2016-05-12 14:02:08,481 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 14:02:08,884 INFO - run.py <module>: Starting app
+2016-05-12 14:03:28,443 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 14:03:28,645 INFO - run.py <module>: Starting app
+2016-05-12 14:04:42,046 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 14:04:42,235 INFO - run.py <module>: Starting app
+2016-05-12 14:08:25,789 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 14:08:26,131 INFO - run.py <module>: Starting app
+2016-05-12 14:09:21,472 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 14:09:21,850 INFO - run.py <module>: Starting app
+2016-05-12 14:09:59,089 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 14:09:59,484 INFO - run.py <module>: Starting app
+2016-05-12 14:14:09,397 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 14:14:09,675 INFO - run.py <module>: Starting app
+2016-05-12 14:15:00,996 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 14:15:01,186 INFO - run.py <module>: Starting app
+2016-05-12 14:18:41,383 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 14:18:41,569 INFO - run.py <module>: Starting app
+2016-05-12 14:19:26,494 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 14:19:27,097 INFO - run.py <module>: Starting app
+2016-05-12 14:27:58,054 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 14:27:58,277 INFO - run.py <module>: Starting app
+2016-05-12 14:28:10,723 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 14:28:10,913 INFO - run.py <module>: Starting app
+2016-05-12 14:36:09,433 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 14:36:09,643 INFO - run.py <module>: Starting app
+2016-05-12 14:50:19,568 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 14:50:20,176 INFO - run.py <module>: Starting app
+2016-05-12 14:52:05,345 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 14:52:05,561 INFO - run.py <module>: Starting app
+2016-05-12 15:22:45,683 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 15:22:45,929 INFO - run.py <module>: Starting app
+2016-05-12 15:23:29,049 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 15:23:29,269 INFO - run.py <module>: Starting app
+2016-05-12 15:45:01,981 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 15:45:02,226 INFO - run.py <module>: Starting app
+2016-05-12 16:00:33,542 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:00:33,744 INFO - run.py <module>: Starting app
+2016-05-12 16:02:09,044 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:02:09,375 INFO - run.py <module>: Starting app
+2016-05-12 16:17:24,543 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:17:24,745 INFO - run.py <module>: Starting app
+2016-05-12 16:22:11,758 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:22:11,953 INFO - run.py <module>: Starting app
+2016-05-12 16:26:44,905 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:26:45,095 INFO - run.py <module>: Starting app
+2016-05-12 16:33:45,520 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:33:45,711 INFO - run.py <module>: Starting app
+2016-05-12 16:35:23,999 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:35:25,169 INFO - run.py <module>: Starting app
+2016-05-12 16:36:45,888 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:36:46,095 INFO - run.py <module>: Starting app
+2016-05-12 16:37:23,519 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:37:23,710 INFO - run.py <module>: Starting app
+2016-05-12 16:37:49,207 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:37:49,406 INFO - run.py <module>: Starting app
+2016-05-12 16:38:15,838 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:38:16,052 INFO - run.py <module>: Starting app
+2016-05-12 16:38:53,870 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:38:54,064 INFO - run.py <module>: Starting app
+2016-05-12 16:39:31,753 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:39:32,153 INFO - run.py <module>: Starting app
+2016-05-12 16:40:14,541 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:40:14,965 INFO - run.py <module>: Starting app
+2016-05-12 16:45:41,833 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:45:42,548 INFO - run.py <module>: Starting app
+2016-05-12 16:45:51,684 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:45:51,880 INFO - run.py <module>: Starting app
+2016-05-12 16:46:05,215 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:46:05,787 INFO - run.py <module>: Starting app
+2016-05-12 16:47:04,133 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:47:04,331 INFO - run.py <module>: Starting app
+2016-05-12 16:47:31,797 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:47:32,189 INFO - run.py <module>: Starting app
+2016-05-12 16:47:47,827 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:47:48,016 INFO - run.py <module>: Starting app
+2016-05-12 16:50:24,377 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:50:24,607 INFO - run.py <module>: Starting app
+2016-05-12 16:51:39,465 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:51:39,689 INFO - run.py <module>: Starting app
+2016-05-12 16:52:14,085 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:52:14,346 INFO - run.py <module>: Starting app
+2016-05-12 16:52:57,799 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:52:57,990 INFO - run.py <module>: Starting app
+2016-05-12 16:53:23,995 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:53:24,292 INFO - run.py <module>: Starting app
+2016-05-12 16:53:53,019 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:53:53,214 INFO - run.py <module>: Starting app
+2016-05-12 16:54:49,475 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:54:49,684 INFO - run.py <module>: Starting app
+2016-05-12 16:55:05,922 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:55:06,460 INFO - run.py <module>: Starting app
+2016-05-12 16:56:09,719 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:56:09,914 INFO - run.py <module>: Starting app
+2016-05-12 16:56:28,113 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:56:28,818 INFO - run.py <module>: Starting app
+2016-05-12 16:59:11,687 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 16:59:11,909 INFO - run.py <module>: Starting app
+2016-05-12 17:00:06,760 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 17:00:06,957 INFO - run.py <module>: Starting app
+2016-05-12 17:06:48,051 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 17:06:48,246 INFO - run.py <module>: Starting app
+2016-05-12 17:07:13,864 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 17:07:14,140 INFO - run.py <module>: Starting app
+2016-05-12 17:07:33,456 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 17:07:33,656 INFO - run.py <module>: Starting app
+2016-05-12 17:07:51,861 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 17:07:52,078 INFO - run.py <module>: Starting app
+2016-05-12 17:08:45,147 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 17:08:45,408 INFO - run.py <module>: Starting app
+2016-05-12 17:11:34,523 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 17:11:34,793 INFO - run.py <module>: Starting app
+2016-05-12 17:12:21,142 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 17:12:21,335 INFO - run.py <module>: Starting app
+2016-05-12 17:13:43,794 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 17:13:44,046 INFO - run.py <module>: Starting app
+2016-05-12 17:14:20,683 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 17:14:20,880 INFO - run.py <module>: Starting app
+2016-05-12 17:14:50,440 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 17:14:50,892 INFO - run.py <module>: Starting app
+2016-05-12 17:16:23,732 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 17:16:23,951 INFO - run.py <module>: Starting app
+2016-05-12 17:16:59,153 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 17:16:59,468 INFO - run.py <module>: Starting app
+2016-05-12 17:17:39,183 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 17:17:39,680 INFO - run.py <module>: Starting app
+2016-05-12 17:20:36,784 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 17:20:36,980 INFO - run.py <module>: Starting app
+2016-05-12 17:21:11,617 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 17:21:12,640 INFO - run.py <module>: Starting app
+2016-05-12 17:21:53,103 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 17:21:53,801 INFO - run.py <module>: Starting app
+2016-05-12 17:22:44,960 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 17:22:45,454 INFO - run.py <module>: Starting app
+2016-05-12 17:25:26,392 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 17:25:27,377 INFO - run.py <module>: Starting app
+2016-05-12 17:27:57,158 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 17:27:57,362 INFO - run.py <module>: Starting app
+2016-05-12 17:29:38,652 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 17:29:38,861 INFO - run.py <module>: Starting app
+2016-05-12 17:30:07,424 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 17:30:07,656 INFO - run.py <module>: Starting app
+2016-05-12 18:05:31,399 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 18:05:31,602 INFO - run.py <module>: Starting app
+2016-05-12 19:10:01,558 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-12 19:10:01,907 INFO - run.py <module>: Starting app

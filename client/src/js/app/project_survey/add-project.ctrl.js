@@ -1,11 +1,15 @@
 (function(){
 'use strict';
 
-angular.module('demoApp')
-    .controller('addProjectController', ['$scope', 'modalServices', 'Projects', 'position', 'positionAddress', addProjectController]);
+angular.module('demoApp.survey')
+    .controller('addProjectController', ['$scope', '$controller', 'modalServices', 'Projects', 'position', 'positionAddress', addProjectController]);
 
-    function addProjectController ($scope, modalServices, Projects, position, positionAddress) {
+    function addProjectController ($scope, $controller, modalServices, Projects, position, positionAddress) {
         var vm = this;
+
+        // Inherit all error handling methods from errorController
+        $controller('errorController', {$scope: $scope});
+        //$controller('validationController', {$scope: $scope});
 
         $scope.project = {};
 
@@ -27,11 +31,16 @@ angular.module('demoApp')
 
             Projects.post($scope.project)
                 .then(function(response){
+                    var restangularizedProject = Projects.cast(response.project);
                     // dismiss modal
-                    modalServices.hideResolveModal(response);
-                },function(error){
-                    console.log('error adding project: ', error);
-                    // TODO: show errors
+                    modalServices.hideResolveModal(restangularizedProject);
+                },function(errorResponse){
+                    console.log('error adding project: ', errorResponse);
+
+                    // TODO: show Errors
+                    if(errorResponse.data.errors) {
+                        $scope.showErrorAlerts(errorResponse.data.errors, $scope.project, 'project');
+                    }
                 });
         }
 

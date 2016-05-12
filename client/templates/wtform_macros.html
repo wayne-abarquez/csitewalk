@@ -15,6 +15,11 @@
             {% if kwargs.has_key('ng-class') %}
          ng-class="{{ kwargs.pop('ng-class', '') }}"
             {% endif %}>
+
+{#        {% if 'tooltip' in kwargs and kwargs.get('tooltip', '') != '' %}#}
+{#            <md-tooltip md-direction="top">{{ kwargs.pop('tooltip', '') }}</md-tooltip>#}
+{#        {% endif %}#}
+
         {% if (field.type != 'HiddenField' and field.type !='CSRFTokenField') and label_visible %}
             <label for="{{ field.id }}"
                     {% if kwargs.has_key('ng-show') %}
@@ -35,16 +40,16 @@
 
 
 {% macro render_textarea_field(field, label_visible=true) -%}
-    <md-input-container class="md-block" flex
+    <md-input-container class="md-block"
             {% if kwargs.has_key('ng-class') %}
                 ng-class="{{ kwargs.pop('ng-class', '') }}"
             {% endif %}>
+
         {% if (field.type != 'HiddenField' and field.type !='CSRFTokenField') and label_visible %}
             <label for="{{ field.id }}"
                     {% if kwargs.has_key('ng-show') %}
                    ng-show="{{ kwargs.get('ng-show', '') }}"
-                    {% endif %}
-            >{{ field.label }}</label>
+                    {% endif %}>{{ field.label }}</label>
         {% endif %}
         {{ field(**kwargs) }}
         {% if field.errors %}
@@ -62,6 +67,7 @@
             {% if kwargs.has_key('ng-class') %}
                         ng-class="{{ kwargs.pop('ng-class', '') }}"
             {% endif %}>
+
         {% if (field.type != 'HiddenField' and field.type !='CSRFTokenField') and label_visible %}
             <label for="{{ field.id }}"
                     {% if kwargs.has_key('ng-show') %}
@@ -96,18 +102,16 @@
         {{ macros.render_checkbox_field(form.remember_me) }}
  #}
 {% macro render_checkbox_field(field) -%}
-    <div class="checkbox">
-        <label
+        <label class="label--checkbox"
         {% if kwargs.has_key('ng-show') %}
             ng-show="{{kwargs.get('ng-show', '')}}"
         {% endif %}
             >
-            {{ field(type='checkbox', **kwargs) }} {{ field.label }}
+            {{ field(class_='checkbox', type='checkbox', **kwargs) }} {{ field.label }}
             <div ng-if="!{{kwargs.get('ng-model', '')}}">
                 <input type="hidden" value="false" id="{{ field.id }}" name="{{ field.id }}" />
             </div>
         </label>
-    </div>
 {%- endmacro %}
  
 {# Renders radio field

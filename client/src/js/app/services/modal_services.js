@@ -44,7 +44,8 @@
                 controller: 'addProjectController',
                 controllerAs: 'vm',
                 templateUrl: '/projects/add',
-                parent: angular.element(document.body),
+                //parent: angular.element(document.body),
+                parent: angular.element(document.querySelector('#index-container')),
                 targetEvent: ev,
                 locals: {position: selectedPosition, positionAddress: address},
                 fullscreen: $mdMedia('lg')
@@ -55,11 +56,16 @@
         function showProjectDetail(proj) {
             var opts = {
                 controller: 'projectDetailsController',
-                controllerAs: 'vm',
+                //controllerAs: 'vm',
                 templateUrl: '/projects/edit',
-                parent: angular.element(document.body),
+                //parent: angular.element(document.body),
+                parent: angular.element(document.querySelector('#index-container')),
                 locals: {project: proj},
-                fullscreen: $mdMedia('lg')
+                //fullscreen: $mdMedia('lg')
+                //hasBackdrop: false,
+                //onComplete: function (scope, element, options) {
+                //    $('.md-scroll-mask').css('z-index', '0');
+                //}
             };
             return showModal(projectDetailModal, opts);
         }

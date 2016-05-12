@@ -29,6 +29,7 @@
     "angular-treasure-overlay-spinner": "~1.1.0",
     "v-accordion": "~1.4.1",
     "ng-jsoneditor": "angular-tools/ng-jsoneditor#~1.0.0",
-    "restangular": "~1.5.2"
+    "restangular": "~1.5.2",
+    "angular-material-data-table": "~0.10.9"
   }
 }

@@ -50,7 +50,6 @@ rest_api = restful.Api(app, catch_all_404s=True)
 
 # monkey patch WTForm classes
 import wtforms_json
-
 wtforms_json.init()
 
 # Register Auth Blueprint

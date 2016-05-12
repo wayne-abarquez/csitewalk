@@ -1,11 +1,35 @@
 #address-search-container {
   position: absolute;
   top: 0;
-  left: calc(50% - 20px);
+  left: 0;
   z-index: 12;
-  padding: 20px 20px 0 20px;
+  padding: 15px 0px 0 15px;
+  height: 70px;
+  width: 25%;
 
-  md-input-container {
-    margin: 0px;
+  md-card-content {
+    padding: 0;
+
+    md-input-container {
+      margin: 0px;
+    }
+
+    button {
+      margin: 0px !important;
+    }
   }
+
+  @media screen and (max-width: 456px) {
+    width: 95%;
+    padding: 8px 8px 0 8px;
+
+    md-input-container {
+      height: 40px;
+
+      input {
+        height: 40px;
+      }
+    }
+  }
+
 }

@@ -2,9 +2,9 @@
 'use strict';
 
 angular.module('demoApp.survey')
-    .factory('projectsServices', ['$rootScope', 'gmapServices', 'modalServices', projectsServices]);
+    .factory('projectsServices', ['$rootScope', 'gmapServices', 'modalServices', '$timeout', projectsServices]);
 
-    function projectsServices ($rootScope, gmapServices, modalServices) {
+    function projectsServices ($rootScope, gmapServices, modalServices, $timeout) {
         var service = {};
 
         var markers = [];
@@ -13,6 +13,9 @@ angular.module('demoApp.survey')
         service.showMarkers = showMarkers;
         service.initializeMarkers = initializeMarkers;
         service.showProjectDetail = showProjectDetail;
+        service.findMarkerByProjectID = findMarkerByProjectID;
+        service.findAndShowMarker = findAndShowMarker;
+        service.findAndShowProjectDetail = findAndShowProjectDetail;
 
         function hideMarkers() {
             if (!markers || markers.length <= 0) return;
@@ -41,16 +44,17 @@ angular.module('demoApp.survey')
                 if (i >= markers.length) {
                     var marker = gmapServices.createCustomMarker(proj.coordinates);
                     marker.infowindow = initInfowindow(proj);
+                    marker.id = proj.id;
                     marker.project = proj;
                     markers.push(marker);
                     gmapServices.addListener(marker, 'click', onClickMarker);
                 }
                 else if (i >= projects.length) {
-                    if (markers[i])
-                        markers[i].project = null;
+                    if (markers[i])  markers[i].project = null;
                     gmapServices.hideMarker(markers[i]);
                 }
                 else if (markers[i]) {
+                    markers[i].id = proj.id;
                     markers[i].project = proj;
                     markers[i].setPosition(proj.coordinates);
                     gmapServices.showMarker(markers[i]);
@@ -71,19 +75,25 @@ angular.module('demoApp.survey')
 
             service.hideMarkers();
 
-            modalServices.showProjectDetail(proj)
-            .then(function (response) {
-                console.log('modalServices.showProjectDetail response: ', response);
-                if (!response) return;
-                if ($rootScope.selectedProject && response) $rootScope.selectedProject.coordinates = response.coordinates;
-            }, function (errorResponse) {
-                console.log('show update solar detail failed');
-                console.log(errorResponse);
-            })
-            .finally(function(){
-                gmapServices.setZoomDefault();
-                service.showMarkers();
-            });
+            proj.get().
+            then(
+                function(response){
+                    modalServices.showProjectDetail(response)
+                        .then(function (response) {
+                            if (!response) return;
+                            if ($rootScope.selectedProject && response) $rootScope.selectedProject.coordinates = response.coordinates;
+                        }, function (errorResponse) {
+                            console.log('show update solar detail failed');
+                            console.log(errorResponse);
+                        })
+                        .finally(function () {
+                            gmapServices.setZoomDefault();
+                            service.showMarkers();
+                        });
+                }, function(error){
+                    console.log('get project details error: ',error);
+                });
+
         }
 
         function initInfowindow(proj) {
@@ -95,11 +105,32 @@ angular.module('demoApp.survey')
             return '<div class="marker_info none" id="marker_info">' +
                 '<div class="info" id="info">' +
                 '<h4>' + proj.project_name + '<span></span></h4>' +
-                '<p>' + proj.contractor.name + '</p>' +
-                '<a href="#!" class="infowindow_btn btn_view_solar_detail">More info</a>' +
+                '<p>' + (proj.contractor ? proj.contractor.name : 'Unassigned') + '</p>' +
+                '<a href="#!" class="infowindow_btn btn_view_project_detail">More info</a>' +
                 '<span class="arrow"></span>' +
                 '</div>' +
                 '</div>';
+        }
+
+        function findMarkerByProjectID (projectID) {
+            var foundMarker = _.findWhere(markers, {id: projectID});
+            return foundMarker;
+        }
+
+        function findAndShowMarker (projectID) {
+            var foundMarker = service.findMarkerByProjectID(projectID);
+            gmapServices.triggerEvent(foundMarker, 'click');
+        }
+
+        function findAndShowProjectDetail (projectID) {
+            $timeout(function(){
+                service.findAndShowMarker(projectID);
+            }, 100)
+            .then(function(){
+                $timeout(function(){
+                    $('a.btn_view_project_detail').trigger('click');
+                }, 100);
+            });
         }
 
         return service;

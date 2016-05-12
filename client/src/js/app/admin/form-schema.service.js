@@ -15,7 +15,7 @@ angular.module('demoApp.admin')
         }
 
         function saveSchema (file) {
-            return FormSchemas.customPOST(file, file.name);
+            return FormSchemas.customPOST(file.data, file.name);
         }
 
         return service;

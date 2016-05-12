@@ -13,3 +13,22 @@ md-menu-content {
   padding-top: 0px;
   padding-bottom: 0px;
 }
+
+/* Buttons on index page */
+
+#save-location-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  @media screen and (max-width: 456px) {
+    top: 10px;
+    right: 10px;
+  }
+}
+
+#show-project-list-btn {
+  position: absolute;
+  bottom: 13px;
+  right: 80px;
+}

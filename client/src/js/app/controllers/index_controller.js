@@ -9,6 +9,8 @@
 
         $rootScope.projects = [];
 
+        vm.showList = false;
+
         vm.initialize = initialize;
         vm.toggleLayerPanel = buildToggler('layerPanel');
         vm.toggleSearchPanel = buildToggler('searchPanel');
@@ -23,11 +25,9 @@
             Projects.getList()
                 .then(function(response){
                     console.log('get projects: ',response);
-
                     response.forEach(function(p){
                        $rootScope.projects.push(p);
                     });
-
                 },function(error){
                     console.log('get projects error: ', error);
                 });

@@ -1,0 +1,53 @@
+{% from 'form_utils.html' import render_sections %}
+{% from 'form_utils.html' import render_fields %}
+
+<md-dialog id="add-project-modal" aria-label="View Project Dialog" flex-xs="100" flex-gt-md="50" ng-cloak>
+    {% raw %}
+    <md-toolbar>
+        <div class="md-toolbar-tools">
+            <div layout="column">
+                <h4 flex style="margin:0;">{{ project.project_name }}</h4>
+                <p flex style="margin:0;font-size: 14px;">{{ project.project_address }}</p>
+            </div>
+            <span flex></span>
+            <md-button class="md-icon-button md-raised" ng-click="save()">
+                <md-icon aria-label="Save Project">save</md-icon>
+            </md-button>
+            <md-button class="md-icon-button" ng-click="close()">
+                <md-icon aria-label="Close dialog">clear</md-icon>
+            </md-button>
+        </div>
+    </md-toolbar>
+    <!-- TODO: find a place to put this one maybe on the header
+    <md-card layout="column">
+    <div flex><b>Project Coordinates: </b> {{ project.coordinates.lat }}, {{project.coordinates.lng}}</div>
+    <div flex><b>Project Address: </b> {{ project.project_address }}</div>
+    </md-card>
+    -->
+    {% endraw %}
+    <md-dialog-content  class="md-padding">
+        <md-tabs id="project-detail-content" md-dynamic-height md-border-bottom md-stretch-tabs="always">
+
+            {# GENERAL INFO (dynamic form json schema) TAB #}
+            <md-tab label="General Information">
+                <md-content class="md-padding">
+                    <form id="add-project-form" name="project_info">
+                        {{ render_fields(form.project_form, 'project.', '') }}
+                    </form>
+                    {{ render_sections(form.gen_info.sections, 'project.sections') }}
+                </md-content>
+            </md-tab>
+
+            <!-- TODO:  Areas/Candidates TAB -->
+
+            <!-- FILES/PHOTOS TAB -->
+            <md-tab label="Files">
+                <md-content class="md-padding">
+                    {{ render_sections(form.files.sections, 'project.sections') }}
+                </md-content>
+            </md-tab>
+
+
+        </md-tabs>
+    </md-dialog-content>
+</md-dialog>

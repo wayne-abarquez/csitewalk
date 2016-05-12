@@ -19,6 +19,7 @@ class Config(object):
     TMP_DIR = '/var/www/' + project_name + '/tmp'
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     SQLALCHEMY_DATABASE_URI = 'postgresql://' + db_user + ':youcantguess@localhost:5432/' + db_name
+    FORM_SCHEMA_DIR = 'app/data/form_schema/'
 
 
 class DevelopmentConfig(Config):

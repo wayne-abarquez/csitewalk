@@ -15,6 +15,7 @@ user_fields = dict(
     id=fields.Integer,
     firstname=fields.String,
     lastname=fields.String,
+    fullname=fields.String,
     phone_number=fields.String,
     email=fields.String,
     username=fields.String,

@@ -27,12 +27,12 @@ gulp.task('vendor-scripts', function () {
         paths.bower + 'sweetalert/dist/sweetalert.min.js',
         paths.bower + 'ngSweetAlert/SweetAlert.min.js',
         paths.bower + 'v-accordion/dist/v-accordion.min.js',
+        paths.bower + 'angular-material-data-table/dist/md-data-table.min.js',
         paths.srcLibJs + 'infobox.js'
     ])
         .pipe($.plumber())
         .pipe($.concat('vendor.min.js'))
         .pipe($.if(args.production, $.uglify({mangle: false})))
-        //.pipe($.uglify({mangle: false}))
         .pipe(gulp.dest(paths.destJs))
         .pipe($.size());
 });

@@ -7,7 +7,10 @@ var paths = gulp.paths,
 gulp.task('sass', function () {
     return gulp.src(paths.srcSass + 'app.scss')
         .pipe($.plumber())
-        .pipe($.sass({style: 'expanded'}))
+        .pipe($.sass({
+            style: 'expanded',
+            includePaths: require('node-bourbon').includePaths
+        }))
         .pipe($.autoprefixer({browsers: ['> 1%', 'last 2 versions', 'Firefox ESR', 'Opera 12.1']}))
         .pipe($.csso())
         .pipe($.rename('app.min.css'))
@@ -17,7 +20,8 @@ gulp.task('sass', function () {
 gulp.task('vendor-css', function () {
    return gulp.src([
        paths.bower + 'angular-material/angular-material.min.css',
-       paths.bower + 'sweetalert/dist/sweetalert.css'
+       paths.bower + 'sweetalert/dist/sweetalert.css',
+       paths.bower + 'angular-material-data-table/dist/md-data-table.min.css'
    ])
        .pipe($.concatCss('vendor.min.css'))
        .pipe($.csso())

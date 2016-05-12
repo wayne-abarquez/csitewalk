@@ -7,6 +7,7 @@
             'ngMaterial',
             'ngAnimate',
             'oitozero.ngSweetAlert',
+            'md.data.table',
             'demoApp.admin',
             'demoApp.survey'
         ])
