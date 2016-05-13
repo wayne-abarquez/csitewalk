@@ -7,7 +7,7 @@ from .fields import *
 from .forms import *
 from .dynamic_form import SectionGroup
 from .errors import *
-from app.resources import UploadResource
+from ..resources import UploadResource
 import logging
 
 log = logging.getLogger(__name__)
