@@ -7,6 +7,7 @@ from .fields import *
 from .forms import *
 from .dynamic_form import SectionGroup
 from .errors import *
+from app.resources import UploadResource
 import logging
 
 log = logging.getLogger(__name__)
@@ -115,6 +116,32 @@ class ProjectSectionsResource(Resource):
         # abort(401, message="Requires user to login")
 
 
+class ProjectFilesResource(UploadResource):
+    """
+    Resource for Project Files
+    """
+
+    def post(self, project_id):
+        """ POST /api/projects/<project_id>/files """
+        log.debug('Update Project File {0} request: {1}'.format(project_id, request.form))
+
+        if current_user and current_user.is_authenticated:
+            uploaded_file = request.files['file']
+            # TODO: Delete previous associated file before saving new one for good housekeeping
+            if self.has_valid_form() and uploaded_file and self.allowed_file(uploaded_file.filename):
+                filename = self.copy_file(uploaded_file)
+                data = dict(id=project_id, sections=self.get_form_data(filename))
+                try:
+                    save_sections_from_dict(project_id, data)
+                    return dict(status=200, message="OK", filename=filename)
+                except ProjectNotFoundError as err:
+                    abort(404, message=err.message)
+            else:
+                abort(400, message="Invalid parameters")
+        abort(401, message="Requires user to login")
+
+
 rest_api.add_resource(ProjectsResource, '/api/projects')
 rest_api.add_resource(ProjectDetailsResource, '/api/projects/<int:project_id>')
 rest_api.add_resource(ProjectSectionsResource, '/api/projects/<int:project_id>/sections')
+rest_api.add_resource(ProjectFilesResource, '/api/projects/<int:project_id>/files')

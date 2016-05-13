@@ -2,24 +2,31 @@
 'use strict';
 
 angular.module('demoApp.survey')
-    .controller('projectDetailsController', ['project', '$scope', '$q', '$controller', 'modalServices', 'utilServices', projectDetailsController]);
+    .controller('projectDetailsController', ['project', '$scope', '$q', '$timeout', '$controller', 'modalServices', 'utilServices', 'fileUploaderServices', 'UPLOAD_URL', projectDetailsController]);
 
-    function projectDetailsController (project, $scope, $q, $controller, modalServices, utilServices) {
+    function projectDetailsController (project, $scope, $q, $timeout, $controller, modalServices, utilServices, fileUploaderServices, UPLOAD_URL) {
         $controller('errorController', {$scope: $scope});
 
         $scope.project = {
             id: 0
         };
 
+        $scope.currentImage = {
+          url: '',
+          filename: ''
+        };
+
         $scope.initialize = initialize;
         $scope.save = save;
         $scope.close = close;
+
+        $scope.uploadFile = uploadFile;
+        $scope.previewFile = previewFile;
 
         $scope.initialize();
 
         function initialize () {
             //console.log('selectedProject: ',project);
-
             // Fixes bug on WTForms SelectField
             if(project.project_manager) project.project_manager.id = String(project.project_manager.id);
             if(project.contractor) project.contractor.id = String(project.contractor.id);
@@ -95,8 +102,6 @@ angular.module('demoApp.survey')
             return dfd.promise;
         }
 
-
-
         function save () {
             // Todo: show loading animation
 
@@ -112,16 +117,68 @@ angular.module('demoApp.survey')
                 });
         }
 
-        // todo
-        $scope.fileChanged = function(files, rejectedFiles) {
-        };
-
-        // todo
-        $scope.filePreview = function(modelName) {
-        };
-
-        function close () {
+        function close() {
             modalServices.closeModal();
         }
+
+        // todo
+        function uploadFile (file, errorFiles, model, modelName) {
+            var child_name = modelName.substring(modelName.indexOf('.') + 1);
+
+            if (errorFiles && errorFiles.constructor == Array && errorFiles.length > 0) {
+                utilServices.setScopeValue(model, child_name + "_status", "=> Only supports pdf, jpg, png, tif, docx, xlsx");
+                alert("Unsupported file");
+                return;
+            }
+
+            var file_name = file.name;
+
+
+            var successCallback = function (response) {
+                $timeout(function () {
+                    utilServices.setScopeValue(model, child_name, response.filename);
+                    utilServices.setScopeValue(model, child_name + "_to_upload", null);
+                    utilServices.setScopeValue(model, child_name + "_status", "");
+                });
+            };
+
+            var errorCallback = function (response, statusCode) {
+                $timeout(function () {
+                    console.log(response);
+                    if (statusCode == 413) {
+                        utilServices.setScopeValue(model, child_name + "_to_upload", null);
+                        utilServices.setScopeValue(model, child_name + "_status", "=> {0} is > 4Mb".format(file_name));
+                    } else {
+                        utilServices.setScopeValue(model, child_name + "_to_upload", null);
+                        utilServices.setScopeValue(model, child_name + "_status", "=> {0} failed to upload".format(file_name));
+                    }
+                });
+            };
+
+            var progressCallback = function (evt) {
+                $timeout(function () {
+                    var progress = Math.min(100, parseInt(100.0 * evt.loaded / evt.total));
+                    var status = "=> " + file_name + " " + progress.toString() + "%";
+                    utilServices.setScopeValue(model, child_name + "_status", status);
+                });
+            };
+
+            fileUploaderServices.uploadProjectFile(model, file, modelName)
+                .success(successCallback)
+                .error(errorCallback)
+                .progress(progressCallback);
+        }
+
+        function previewFile (modelName) {
+            if(modelName == $scope.currentImage.filename) {
+                $scope.currentImage.filename = '';
+                $scope.currentImage.url = '';
+                return;
+            }
+
+            $scope.currentImage.filename = modelName;
+            $scope.currentImage.url = UPLOAD_URL + modelName;
+        }
+
     }
 }());

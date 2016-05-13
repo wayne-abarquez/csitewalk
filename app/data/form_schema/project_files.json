@@ -81,7 +81,7 @@
                     "can_screenshot": false
                 }
             ], 
-            "name": "scip_files", 
+            "name": "project_files",
             "label": ""
         }
     ]

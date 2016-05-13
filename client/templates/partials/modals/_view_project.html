@@ -43,6 +43,11 @@
             <!-- FILES/PHOTOS TAB -->
             <md-tab label="Files">
                 <md-content class="md-padding">
+                    {% raw %}
+                    <md-card ng-show="currentImage.url != ''" flex>
+                        <img ng-src="{{currentImage.url || ''}}" alt="{{currentImage.filename}}" />
+                    </md-card>
+                    {% endraw %}
                     {{ render_sections(form.files.sections, 'project.sections') }}
                 </md-content>
             </md-tab>

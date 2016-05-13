@@ -2,10 +2,27 @@
     'use strict';
 
     angular.module('demoApp.admin')
-        .factory('Projects', ['Restangular', Projects]);
+        .factory('Projects', ['Restangular', 'Upload', Projects]);
 
-    function Projects(Restangular) {
+    function Projects(Restangular, Upload) {
+
         var myModel = Restangular.all('projects');
+
+        Restangular.extendModel('projects', function (model) {
+
+            model.upload = function (_file, _fields) {
+                var uploadUrl = model.getRestangularUrl() + '/' + 'files';
+
+                return Upload.upload({
+                    url: uploadUrl,
+                    method: 'POST',
+                    fields: _fields,
+                    file: _file
+                });
+            };
+
+            return model;
+        });
 
         var resource = {
             cast: function (obj) {
@@ -17,4 +34,8 @@
 
         return myModel;
     }
+
+
+
+
 }());

@@ -4,3 +4,5 @@ logs/*.*
 .idea/
 client/src/bower_components/**
 client/node_modules/**
+client/static/downloads/*.*
+client/static/uploads/*.*

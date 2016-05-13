@@ -79,7 +79,7 @@ def save_sections_from_dict(project_id, data):
 
     set_coordinates(proj, data)
     # TODO
-    # set_scip_area(scip, data)
+    # set_area(proj, data)
 
     section_data = data['sections'] if 'sections' in data else []
     sections = proj.get_sections()

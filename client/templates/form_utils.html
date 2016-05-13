@@ -67,11 +67,10 @@
             <td style="width: 100%; padding-left: 10px;">
 
                 <md-button class="md-icon-button md-accent md-raised"
-                     ngf-select
-                     ngf-accept="'*.pdf,*.jpg,*.jpeg,*.png,*.tiff,*.tif'"
-                     ngf-change="fileChanged($files, $rejectedFiles, {{ parent_name }}, '{{ model_name }}')"
+                     ngf-select="uploadFile($file, $invalidFiles, {{ parent_name }}, '{{ model_name }}')"
                      ngf-capture="'camera'"
-                     ngf-multiple="false"
+                     ngf-pattern="'.pdf,image/*'"
+                     ngf-max-size="20MB"
                      {% if kwargs.has_key('ng-model') %}
                         ng-model="{{ model_name }}_to_upload"
                      {% endif %}>
@@ -80,7 +79,7 @@
 
                 <md-button class="md-icon-button md-raised"
                      ng-disabled="{{ model_name }} == null || {{ model_name }} == ''"
-                     ng-click="filePreview({{ model_name }})">
+                     ng-click="previewFile({{ model_name }})">
                     <md-icon>visibility</md-icon>
                 </md-button>
 
@@ -95,8 +94,8 @@
                 <input type="text" ng-model="{{ model_name }}_status" value=""
                        ng-init="{{ model_name }}_status = {{ model_name }}_status || ''" ng-hide="true">
 {#            TODO: create displayFilename directive #}
-{#                <span>{%raw%} {{ {%endraw%} {{ model_name }} | displayFilename {%raw%} }} {%endraw%}</span>#}
-{#                <span>{%raw%} {{ {%endraw%} {{ model_name }}_status {%raw%} }} {%endraw%}</span>#}
+                <span flex style="font-size: 13px;color: rgba(0,0,0,0.7);padding: 10px;">{%raw%} {{ {%endraw%} {{ model_name }} | displayFilename {%raw%} }} {%endraw%}</span>
+                <span>{%raw%} {{ {%endraw%} {{ model_name }}_status {%raw%} }} {%endraw%}</span>
             </td>
         </tr>
     </table><md-divider></md-divider>
