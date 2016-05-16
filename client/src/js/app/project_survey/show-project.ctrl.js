@@ -142,7 +142,7 @@ angular.module('demoApp.survey')
 
             var successCallback = function (response) {
                 $timeout(function () {
-                    utilServices.setScopeValue(model, child_name, response);
+                    utilServices.setScopeValue(model, child_name, response.file);
                     utilServices.setScopeValue(model, child_name + "_to_upload", null);
                     utilServices.setScopeValue(model, child_name + "_status", "");
                 });

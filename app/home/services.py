@@ -130,35 +130,41 @@ def save_files_from_dict(project_id, data):
         raise ProjectNotFoundError("PROJECT id={0} not found".format(project_id))
 
     section_data = data['sections'] if 'sections' in data else []
+    print "section data: {0}".format(section_data)
     sections = proj.get_sections()
-    for section_name in section_data:
-        if section_name not in sections:
-            section = ProjectFormSections(name=section_name)
-            sections[section_name] = section
-            proj.sections.append(section)
+
+    section_name = section_data.keys()[0]
+
+    # for section_name in section_data:
+    if section_name not in sections:
+        section = ProjectFormSections(name=section_name)
+        sections[section_name] = section
+        proj.sections.append(section)
+    else:
+        section = sections[section_name]
+
+    files = section.get_files()
+    field_name = section_data[section_name].keys()[0]
+    # for field_name in section_data[section_name]:
+
+    file_data = section_data[section_name][field_name]
+
+    if is_project_file(field_name, file_data['filename']):
+        filename = file_data['filename']
+        filext = get_file_extension(filename)
+
+        if field_name not in files:
+            _file = ProjectFiles(modelname=field_name, filename=filename, filetype=filext)
+            set_file_geo_data(_file, file_data)
+
+            files[field_name] = _file
+            section.files.append(_file)
         else:
-            section = sections[section_name]
-
-        files = section.get_files()
-        for field_name in section_data[section_name]:
-
-            file_data = section_data[section_name][field_name]
-
-            if is_project_file(field_name, file_data['filename']):
-                filename = file_data['filename']
-                filext = get_file_extension(filename)
-
-                if field_name not in files:
-                    file = ProjectFiles(modelname=field_name, filename=filename, filetype=filext)
-                    set_file_geo_data(file, file_data)
-
-                    files[field_name] = file
-                    section.files.append(file)
-                else:
-                    files[field_name].filename = filename
-                    files[field_name].filetype = filext
-                    set_file_geo_data(file, file_data)
+            files[field_name].filename = filename
+            files[field_name].filetype = filext
+            set_file_geo_data(files[field_name], file_data)
+            _file = files[field_name]
 
     db.session.commit()
-    return proj
+    return _file
 

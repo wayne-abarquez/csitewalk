@@ -8,6 +8,7 @@ from .fields import *
 from .forms import *
 from .dynamic_form import SectionGroup
 from .errors import *
+from app.utils.gis_helper import GISHelper
 import os
 import logging
 
@@ -198,14 +199,17 @@ class ProjectFilesResource(UploadResource):
 
         if current_user and current_user.is_authenticated:
             uploaded_file = request.files['file']
-            # filename = str(uuid4()) + os.pathsep + secure_filename(uploaded_file.filename)
-        #     # TODO: Delete previous associated file before saving new one for good housekeeping
+            # TODO: Delete previous associated file before saving new one for good housekeeping
             if self.has_valid_form() and uploaded_file and self.allowed_file(uploaded_file.filename):
                 filename = self.copy_file(uploaded_file)
                 data = dict(id=project_id, sections=self.get_files_form_data(filename))
                 try:
-                    save_files_from_dict(project_id, data)
-                    return dict(status=200, message="OK", filename=filename)
+                    file = save_files_from_dict(project_id, data)
+                    file.date_created = file.date_created.isoformat()
+                    file.date_modified = file.date_modified.isoformat()
+                    file.coordinates = GISHelper.point_to_latlng_dict(file.coordinates)
+                    filedict = file.to_dict()
+                    return dict(status=200, message="OK", file=filedict)
                 except ProjectNotFoundError as err:
                     abort(404, message=err.message)
             else:
