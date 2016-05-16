@@ -1,8 +1,6 @@
 from flask.ext.restful import Resource, abort, marshal_with, marshal
 from flask import request
-from app import app, rest_api
-from uuid import uuid4
-from werkzeug.utils import secure_filename
+from app import rest_api
 from PIL import Image
 from flask_login import current_user
 from .services import *
@@ -123,11 +121,13 @@ class ProjectSectionsResource(Resource):
 
 
 class UploadResource(Resource):
+    from app.utils.files_helper import *
+
     def allowed_file(self, filename):
         return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
     def convert_file(self, filename):
-        file_ext = filename.rsplit('.', 1)[1].lower()
+        file_ext = get_file_extension(filename)
 
         if file_ext == 'pdf':
             return filename
@@ -151,7 +151,7 @@ class UploadResource(Resource):
         return filename
 
     def copy_file(self, uploaded_file):
-        filename = str(uuid4()) + os.pathsep + secure_filename(uploaded_file.filename)
+        filename = generate_filename(uploaded_file.filename)
 
         uploaded_file.save(os.path.join(UPLOAD_FOLDER, filename))
 
@@ -168,6 +168,24 @@ class UploadResource(Resource):
         section[form['section']] = field
         return section
 
+    def get_files_form_data(self, filename):
+        form = request.form
+        field = dict()
+        data = dict()
+        data['filename'] = filename
+
+        if 'lat' in form and 'lng' in form:
+            data['coordinates'] = {'lat': form['lat'], 'lng': form['lng']}
+
+        if 'heading' in form:
+            data['heading'] = form['heading']
+
+        field[form['field']] = data
+
+        section = dict()
+        section[form['section']] = field
+        return section
+
 
 class ProjectFilesResource(UploadResource):
     """
@@ -180,12 +198,13 @@ class ProjectFilesResource(UploadResource):
 
         if current_user and current_user.is_authenticated:
             uploaded_file = request.files['file']
-            # TODO: Delete previous associated file before saving new one for good housekeeping
+            # filename = str(uuid4()) + os.pathsep + secure_filename(uploaded_file.filename)
+        #     # TODO: Delete previous associated file before saving new one for good housekeeping
             if self.has_valid_form() and uploaded_file and self.allowed_file(uploaded_file.filename):
                 filename = self.copy_file(uploaded_file)
-                data = dict(id=project_id, sections=self.get_form_data(filename))
+                data = dict(id=project_id, sections=self.get_files_form_data(filename))
                 try:
-                    save_sections_from_dict(project_id, data)
+                    save_files_from_dict(project_id, data)
                     return dict(status=200, message="OK", filename=filename)
                 except ProjectNotFoundError as err:
                     abort(404, message=err.message)

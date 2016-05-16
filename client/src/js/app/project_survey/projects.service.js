@@ -70,15 +70,30 @@ angular.module('demoApp.survey')
             $rootScope.selectedProject = this.project;
         }
 
+        function mapResponse (data) {
+            if (!data['section_files']) data;
+            for (var section in data['section_files']) {
+                var section_files = data['section_files'][section];
+                for (var modelname in section_files) {
+                    if(!data['sections'][section]) {
+                        data['sections'][section] = {};
+                        if(!data['sections'][section][modelname]) data['sections'][section][modelname] = {};
+                    }
+                    data['sections'][section][modelname] = section_files[modelname];
+                }
+            }
+            return data;
+        }
+
         function showProjectDetail (proj) {
             if (!(proj && proj.id)) return;
 
             service.hideMarkers();
 
             proj.get().
-            then(
-                function(response){
-                    modalServices.showProjectDetail(response)
+            then(function(response){
+                    var mappedResponse = mapResponse(response);
+                    modalServices.showProjectDetail(mappedResponse)
                         .then(function (response) {
                             if (!response) return;
                             if ($rootScope.selectedProject && response) $rootScope.selectedProject.coordinates = response.coordinates;

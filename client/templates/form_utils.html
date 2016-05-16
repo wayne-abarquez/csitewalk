@@ -58,6 +58,7 @@
 
 {% macro render_file_field(field) %}
     {% set model_name = kwargs.get('ng-model', '') %}
+    {% set file_name = kwargs.get('ng-model', '') + '.filename' %}
     {% set parent_name = model_name.split('.')[0] %}
     <table style="width: 100%;">
         <tr style="width: 100%;">
@@ -83,19 +84,13 @@
                     <md-icon>visibility</md-icon>
                 </md-button>
 
-{#                {% if field.can_screenshot %}#}
-{#                    <md-button class="md-icon-button md-raised"#}
-{#                         ng-click="screenshot({{ parent_name }}, '{{model_name}}')">#}
-{#                        <md-icon>crop_free</md-icon>#}
-{#                    </md-button>#}
-{#                {% endif %}#}
                 <input type="text" ng-model="{{ model_name }}" value=""
                        ng-init="{{ model_name }} = {{ model_name }} || ''" ng-hide="true">
                 <input type="text" ng-model="{{ model_name }}_status" value=""
                        ng-init="{{ model_name }}_status = {{ model_name }}_status || ''" ng-hide="true">
 {#            TODO: create displayFilename directive #}
-                <span flex style="font-size: 13px;color: rgba(0,0,0,0.7);padding: 10px;">{%raw%} {{ {%endraw%} {{ model_name }} | displayFilename {%raw%} }} {%endraw%}</span>
-                <span>{%raw%} {{ {%endraw%} {{ model_name }}_status {%raw%} }} {%endraw%}</span>
+                <span flex style="font-size: 13px;color: rgba(0,0,0,0.7);padding: 10px;">{%raw%} {{ {%endraw%} {{ file_name }} | displayFilename {%raw%} }} {%endraw%}</span>
+                <span>{%raw%} {{ {%endraw%} {{ file_name }}_status {%raw%} }} {%endraw%}</span>
             </td>
         </tr>
     </table><md-divider></md-divider>

@@ -47,6 +47,8 @@
                     <md-card ng-show="currentImage.url != ''" flex>
                         <img ng-src="{{currentImage.url || ''}}" alt="{{currentImage.filename}}" />
                     </md-card>
+                    <md-card id="photo-map" ng-show="currentImage.coordinates" flex style="width:100%; height: 300px;">
+                    </md-card>
                     {% endraw %}
                     {{ render_sections(form.files.sections, 'project.sections') }}
                 </md-content>

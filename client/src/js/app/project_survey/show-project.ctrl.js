@@ -2,9 +2,9 @@
 'use strict';
 
 angular.module('demoApp.survey')
-    .controller('projectDetailsController', ['project', '$scope', '$q', '$timeout', '$controller', 'modalServices', 'utilServices', 'fileUploaderServices', 'UPLOAD_URL', projectDetailsController]);
+    .controller('projectDetailsController', ['project', '$scope', '$q', '$timeout', '$controller', 'modalServices', 'utilServices', 'fileUploaderServices', 'UPLOAD_URL', 'locationServices', 'photoGmapServices', projectDetailsController]);
 
-    function projectDetailsController (project, $scope, $q, $timeout, $controller, modalServices, utilServices, fileUploaderServices, UPLOAD_URL) {
+    function projectDetailsController (project, $scope, $q, $timeout, $controller, modalServices, utilServices, fileUploaderServices, UPLOAD_URL, locationServices, photoGmapServices) {
         $controller('errorController', {$scope: $scope});
 
         $scope.project = {
@@ -26,6 +26,10 @@ angular.module('demoApp.survey')
         $scope.initialize();
 
         function initialize () {
+            // merge response.section_files to sections files section
+            console.log('get proj detail: ', project);
+
+
             //console.log('selectedProject: ',project);
             // Fixes bug on WTForms SelectField
             if(project.project_manager) project.project_manager.id = String(project.project_manager.id);
@@ -33,6 +37,10 @@ angular.module('demoApp.survey')
             if(project.civicsolar_account_manager) project.civicsolar_account_manager.id = String(project.civicsolar_account_manager.id);
 
             $scope.project = project;
+
+            $scope.$on('$destroy', function(){
+               photoGmapServices.map = null;
+            });
         }
 
 
@@ -121,7 +129,6 @@ angular.module('demoApp.survey')
             modalServices.closeModal();
         }
 
-        // todo
         function uploadFile (file, errorFiles, model, modelName) {
             var child_name = modelName.substring(modelName.indexOf('.') + 1);
 
@@ -133,10 +140,9 @@ angular.module('demoApp.survey')
 
             var file_name = file.name;
 
-
             var successCallback = function (response) {
                 $timeout(function () {
-                    utilServices.setScopeValue(model, child_name, response.filename);
+                    utilServices.setScopeValue(model, child_name, response);
                     utilServices.setScopeValue(model, child_name + "_to_upload", null);
                     utilServices.setScopeValue(model, child_name + "_status", "");
                 });
@@ -163,21 +169,66 @@ angular.module('demoApp.survey')
                 });
             };
 
-            fileUploaderServices.uploadProjectFile(model, file, modelName)
-                .success(successCallback)
-                .error(errorCallback)
-                .progress(progressCallback);
+            // todo insert flag here to check photo or file
+            // if photo get the current location and heading
+            // where the photo was taken
+            locationServices.getCurrentLocation()
+                .then(function(response){
+                    var position = {'lat': response.coords.latitude, 'lng': response.coords.longitude};
+                    var heading = response.coords.heading;
+
+                    fileUploaderServices.uploadProjectFile(model, file, modelName, position, heading)
+                        .success(successCallback)
+                        .error(errorCallback)
+                        .progress(progressCallback);
+
+                }, function(error) {
+                    console.log('error get location: ',error);
+                });
+
+
         }
 
-        function previewFile (modelName) {
-            if(modelName == $scope.currentImage.filename) {
+        var arrowMarker = null;
+
+        function previewFile (model) {
+            //console.log('preview file: ', model);
+
+            var filename = model.filename;
+            if(filename == $scope.currentImage.filename) {
                 $scope.currentImage.filename = '';
                 $scope.currentImage.url = '';
+                $scope.currentImage.coordinates = null;
+                $scope.currentImage.heading = null;
                 return;
             }
 
-            $scope.currentImage.filename = modelName;
-            $scope.currentImage.url = UPLOAD_URL + modelName;
+            $scope.currentImage.filename = filename;
+            $scope.currentImage.url = UPLOAD_URL + filename;
+            $scope.currentImage.coordinates = model.coordinates;
+            $scope.currentImage.heading = model.heading;
+
+            var coords = $scope.currentImage.coordinates;
+
+            if(coords) {
+                if(!photoGmapServices.map) photoGmapServices.createMap('photo-map');
+                else google.maps.event.trigger(photoGmapServices.map, "resize");
+
+
+                if (arrowMarker) {
+                    arrowMarker.setMap(null);
+                    arrowMarker = null;
+                }
+
+                var heading = $scope.currentImage.heading ? $scope.currentImage.heading : null;
+
+                $timeout(function(){
+                    photoGmapServices.setZoomIfGreater(20);
+                    photoGmapServices.map.panTo(coords);
+
+                    arrowMarker = photoGmapServices.createArrowMarker(coords, heading);
+                }, 200);
+            }
         }
 
     }

@@ -42,5 +42,18 @@ project_create_fields = dict(
     project=fields.Nested(project_fields, allow_null=False)
 )
 
+# project_file_fields = dict(
+#     id=fields.Integer,
+#     section_id=fields.Integer,
+#     modelname=fields.String,
+#     filename=fields.String,
+#     filetype=fields.String,
+#     coordinates=PointToLatLng(attribute='coordinates'),
+#     heading=fields.Integer,
+#     date_created=fields.DateTime("iso8601"),
+#     date_modified=fields.DateTime("iso8601")
+# )
+
 project_complete_fields = copy(project_fields)
 project_complete_fields["sections"] = fields.Raw
+project_complete_fields["section_files"] = fields.Raw

@@ -9,12 +9,17 @@ angular.module('demoApp.survey')
 
         service.uploadProjectFile = uploadProjectFile;
 
-        function uploadProjectFile (projectModel, file, modelName) {
+        function uploadProjectFile (projectModel, file, modelName, coordinates, heading) {
             var name_parts = modelName.split('.');
             var section = name_parts[name_parts.length - 2];
             var field = name_parts[name_parts.length - 1];
 
-            return projectModel.upload(file, {section: section, field: field});
+            var data = {section: section, field: field};
+
+            if(coordinates) angular.merge(data, coordinates);
+            if(heading) data['heading'] = heading;
+
+            return projectModel.upload(file, data);
         }
 
         return service;

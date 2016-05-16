@@ -19,6 +19,7 @@ class Config(object):
     TMP_DIR = '/var/www/' + project_name + '/tmp'
     UPLOAD_FOLDER = '/var/www/' + project_name + '/client/static/uploads'
     ALLOWED_EXTENSIONS = set(['pdf', 'png', 'jpg', 'jpeg', 'gif', 'tif', 'tiff'])
+    ALLOWED_FILE_EXTENSIONS = set(['pdf', 'png', 'jpg', 'jpeg', 'gif', 'tif', 'tiff', 'csv', 'xls', 'xlsx'])
     SQLALCHEMY_TRACK_MODIFICATIONS = True
     SQLALCHEMY_DATABASE_URI = 'postgresql://' + db_user + ':youcantguess@localhost:5432/' + db_name
     FORM_SCHEMA_DIR = 'app/data/form_schema/'

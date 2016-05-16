@@ -4,9 +4,11 @@ from app.utils import forms_helper
 from .errors import *
 from shapely.geometry import Point
 from shapely.wkt import dumps
+from app.utils.files_helper import *
 import logging
 
 log = logging.getLogger(__name__)
+
 
 
 def get_projects_for_user():
@@ -38,6 +40,9 @@ def get_project_details(project_id):
     data["contractor"] = proj.contractor
     data["civicsolar_account_manager"] = proj.civicsolar_account_manager
     data['sections'] = proj.get_sections_data()
+    data['section_files'] = proj.get_section_files()
+    # print "Sections: {0}".format(data['sections'])
+    print "Sections Files: {0}".format(data['section_files'])
     return data
 
 
@@ -58,15 +63,19 @@ def create_from_dict(data):
     return p
 
 
-def set_coordinates(proj, data):
+def get_coordinates_dump(data):
     if 'coordinates' in data and type(data['coordinates']) is dict:
         point = data['coordinates']
         if all(key in point for key in ('lat', 'lng')):
             point = Point(float(point['lng']), float(point['lat']))
-            proj.coordinates = dumps(point)
+            return dumps(point)
     elif all(key in data for key in ('latitude', 'longitude')):
         point = Point(float(data['longitude']), float(data['latitude']))
-        proj.coordinates = dumps(point)
+        return dumps(point)
+
+
+def set_coordinates(proj, data):
+    proj.coordinates = get_coordinates_dump(data)
 
 
 def save_sections_from_dict(project_id, data):
@@ -93,11 +102,63 @@ def save_sections_from_dict(project_id, data):
 
         fields = section.get_fields()
         for field_name in section_data[section_name]:
+            field_data = section_data[section_name][field_name]
             if field_name not in fields:
-                field = ProjectFormFields(name=field_name, data=section_data[section_name][field_name])
+                field = ProjectFormFields(name=field_name, data=field_data)
                 fields[field_name] = field
                 section.fields.append(field)
             else:
-                fields[field_name].data = section_data[section_name][field_name]
+                fields[field_name].data = field_data
     db.session.commit()
     return proj
+
+
+def set_file_geo_data(file, data):
+    if 'coordinates' in data:
+        file.coordinates = get_coordinates_dump(data)
+
+    if 'heading' in data:
+        file.heading = data['heading']
+
+
+def save_files_from_dict(project_id, data):
+    print "Upload Project File Data: {0}".format(data)
+
+    proj = Projects.query.get(project_id)
+
+    if proj is None:
+        raise ProjectNotFoundError("PROJECT id={0} not found".format(project_id))
+
+    section_data = data['sections'] if 'sections' in data else []
+    sections = proj.get_sections()
+    for section_name in section_data:
+        if section_name not in sections:
+            section = ProjectFormSections(name=section_name)
+            sections[section_name] = section
+            proj.sections.append(section)
+        else:
+            section = sections[section_name]
+
+        files = section.get_files()
+        for field_name in section_data[section_name]:
+
+            file_data = section_data[section_name][field_name]
+
+            if is_project_file(field_name, file_data['filename']):
+                filename = file_data['filename']
+                filext = get_file_extension(filename)
+
+                if field_name not in files:
+                    file = ProjectFiles(modelname=field_name, filename=filename, filetype=filext)
+                    set_file_geo_data(file, file_data)
+
+                    files[field_name] = file
+                    section.files.append(file)
+                else:
+                    files[field_name].filename = filename
+                    files[field_name].filetype = filext
+                    set_file_geo_data(file, file_data)
+
+    db.session.commit()
+    return proj
+
