@@ -700,3 +700,9 @@
 2016-05-13 17:19:39,433 INFO - run.py <module>: Starting app
 2016-05-13 17:55:24,935 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
 2016-05-13 17:55:39,544 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-16 12:09:53,639 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-16 12:09:54,061 INFO - run.py <module>: Starting app
+2016-05-16 12:15:17,413 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-16 12:15:17,657 INFO - run.py <module>: Starting app
+2016-05-16 12:15:59,788 INFO - __init__.py <module>: Will output log to /var/www/csitewalk/logs/app.log
+2016-05-16 12:15:59,997 INFO - run.py <module>: Starting app
