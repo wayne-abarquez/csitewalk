@@ -35,6 +35,10 @@ class SampleData:
             user.password = users.test_password
             db.session.add(user)
 
+        csadmin = Users.from_dict(users.civic_admin)
+        csadmin.password = users.civic_admin['password']
+        db.session.add(csadmin)
+
         db.session.commit()
 
     @staticmethod

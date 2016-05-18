@@ -29,3 +29,14 @@ for index, user in enumerate(test_users):
     user['phone_number'] = fake.phone_number()
     user['email'] = fake.safe_email()
     test_users[index] = user
+
+
+civic_admin = {
+    'username': 'civic',
+    'password': 'solar',
+    'role_id': 1,
+    'firstname': 'Civic',
+    'lastname': 'Solar',
+    'phone_number': fake.phone_number(),
+    'email': 'csuser@civicsolar.com'
+}
