@@ -5,7 +5,6 @@ success_fields = dict(
     message=fields.String,
 )
 
-# TODO: add description
 # add it on model when called PM = Project Manager
 role_fields = dict(
     name=fields.String

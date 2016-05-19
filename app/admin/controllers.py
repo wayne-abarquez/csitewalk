@@ -7,9 +7,8 @@ import logging
 log = logging.getLogger(__name__)
 
 
-#  TODO: uncomment decorators below when deploy
 @admin.route('/admin', methods=['GET'])
-# @login_required
-# @admin_only
+@login_required
+@admin_only
 def admin():
     return render_template('/admin.html')
