@@ -32,7 +32,7 @@ class SampleData:
 
         for data in users.test_users:
             user = Users.from_dict(data)
-            user.password = users.test_password
+            user.password = data['password'] if 'password' in data else users.test_password
             db.session.add(user)
 
         csadmin = Users.from_dict(users.civic_admin)
